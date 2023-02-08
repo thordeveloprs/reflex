@@ -47,7 +47,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       color: Color(0x00FFFFFF),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 10, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +86,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                 child: Container(
                   width: double.infinity,
-                  height: 50,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(28),
@@ -113,15 +112,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         context.goNamedAuth('PracticePage', mounted);
                       },
                       child: Row(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                             child: SvgPicture.asset(
                               'assets/images/google-icon.svg',
-                              width: 20,
-                              height: 220,
+                              width: 40,
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
