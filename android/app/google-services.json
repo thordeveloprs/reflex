@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "294950627480-cn59mfbp47k72ohvrml43oc10t8be7b9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "e041545765031633852193dffaa01f6ffde0f895"
+          }
+        },
+        {
           "client_id": "294950627480-l939u55teofnimj5l6am3ovr1p4i9bnm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

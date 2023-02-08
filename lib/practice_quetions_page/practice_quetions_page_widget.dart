@@ -102,13 +102,24 @@ class _PracticeQuetionsPageWidgetState
                         ),
                       ),
                     ),
-                    Text(
-                      'Anatomy',
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
+                    InkWell(
+                      onTap: () async {
+                        await actions.chkJson(
+                          getJsonField(
+                            practiceQuetionsPageGetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsResponse
+                                .jsonBody,
+                            r'''$.data.test.questions.edges[:].node''',
+                          )!,
+                        );
+                      },
+                      child: Text(
+                        'Anatomy',
+                        style: FlutterFlowTheme.of(context).title2.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                      ),
                     ),
                   ],
                 ),
@@ -126,13 +137,7 @@ class _PracticeQuetionsPageWidgetState
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: QuetionTabsWidget(
-                questions: getJsonField(
-                  practiceQuetionsPageGetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsResponse
-                      .jsonBody,
-                  r'''$.data.test.questions.edges[:].node''',
-                )?.toList(),
-              ),
+              child: QuetionTabsWidget(),
             ),
           ),
         );

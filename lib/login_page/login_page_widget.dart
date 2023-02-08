@@ -91,7 +91,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     borderRadius: BorderRadius.circular(28),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 5),
                     child: InkWell(
                       onTap: () async {
                         GoRouter.of(context).prepareAuthEvent();
@@ -112,14 +112,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         context.goNamedAuth('PracticePage', mounted);
                       },
                       child: Row(
-                        mainAxisSize: MainAxisSize.min,
+                        mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                             child: SvgPicture.asset(
                               'assets/images/google-icon.svg',
-                              width: 40,
+                              width: 20,
                               height: 40,
                               fit: BoxFit.contain,
                             ),

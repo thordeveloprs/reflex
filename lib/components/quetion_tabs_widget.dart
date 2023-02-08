@@ -5,12 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class QuetionTabsWidget extends StatefulWidget {
-  const QuetionTabsWidget({
-    Key? key,
-    this.questions,
-  }) : super(key: key);
-
-  final List<dynamic> questions;
+  const QuetionTabsWidget({Key? key}) : super(key: key);
 
   @override
   _QuetionTabsWidgetState createState() => _QuetionTabsWidgetState();
