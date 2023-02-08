@@ -126,7 +126,13 @@ class _PracticeQuetionsPageWidgetState
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: QuetionTabsWidget(),
+              child: QuetionTabsWidget(
+                questions: getJsonField(
+                  practiceQuetionsPageGetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsResponse
+                      .jsonBody,
+                  r'''$.data.test.questions.edges[:].node''',
+                )?.toList(),
+              ),
             ),
           ),
         );
