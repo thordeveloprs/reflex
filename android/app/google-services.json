@@ -1,0 +1,146 @@
+{
+  "project_info": {
+    "project_number": "294950627480",
+    "project_id": "neetprep-pg-pyqs-100d1",
+    "storage_bucket": "neetprep-pg-pyqs-100d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294950627480:android:3b9e09c5fe40c1270888ed",
+        "android_client_info": {
+          "package_name": "com.gooded.pgpyqs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294950627480-97ovm7oc3rpveq7g3hlbcc9fmnqph714.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "f1ba443d61c814b5c1d8dd779a9a8e4c6ffff4ba"
+          }
+        },
+        {
+          "client_id": "294950627480-b7rfoksdcotrubb2sk9p0d672rastngu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "294950627480-l939u55teofnimj5l6am3ovr1p4i9bnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "e687798967e12611a03ac5a035a852ca92cb05a4"
+          }
+        },
+        {
+          "client_id": "294950627480-luqantj0r7cpltqgv9k9iqbrhatm4d1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "920a1b1607a0c903870f58e952c2bb9cff00cafe"
+          }
+        },
+        {
+          "client_id": "294950627480-pqfsc9gjsbr2bvpsgd3fmfhkopigt76a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "b02a465755f0903d6fcc2838c8cbfa2cfaebe13d"
+          }
+        },
+        {
+          "client_id": "294950627480-q5j829u6vir4n2vasil3fj1bjrgj7s28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "2429b3a010ad0a99a59c93233c5c1a7ecca34c8a"
+          }
+        },
+        {
+          "client_id": "294950627480-rmjd8e9onab3vdht4g09hmldocshos3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.pgpyqs",
+            "certificate_hash": "26729e429d36616ef28ae56a0ff478424a244afb"
+          }
+        },
+        {
+          "client_id": "294950627480-f5igp8udmnkedq8cr5le72t3lcnqcao9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk5t56QJW-EPMAT0HV_YUpdJC0VesmaBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294950627480-f5igp8udmnkedq8cr5le72t3lcnqcao9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "294950627480-hthb4ueupapulcfc33s9oiqsrtjpelhk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gooded.reflex"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294950627480:android:c10af5b9253f89770888ed",
+        "android_client_info": {
+          "package_name": "com.gooded.reflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294950627480-bpaj9vp9177tqeluvcp0njf4s392q55m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.reflex",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "294950627480-f5igp8udmnkedq8cr5le72t3lcnqcao9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk5t56QJW-EPMAT0HV_YUpdJC0VesmaBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294950627480-f5igp8udmnkedq8cr5le72t3lcnqcao9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "294950627480-hthb4ueupapulcfc33s9oiqsrtjpelhk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gooded.reflex"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
