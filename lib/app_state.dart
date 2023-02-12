@@ -167,6 +167,12 @@ class FFAppState extends ChangeNotifier {
   set flag(int _value) {
     _flag = _value;
   }
+
+  bool _isPageLoad = true;
+  bool get isPageLoad => _isPageLoad;
+  set isPageLoad(bool _value) {
+    _isPageLoad = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -7,7 +7,18 @@ import 'bubble_questions_model.dart';
 export 'bubble_questions_model.dart';
 
 class BubbleQuestionsWidget extends StatefulWidget {
-  const BubbleQuestionsWidget({Key? key}) : super(key: key);
+  const BubbleQuestionsWidget({
+    Key? key,
+    this.testId,
+    this.first,
+    this.offset,
+    this.numberOfQuestions,
+  }) : super(key: key);
+
+  final String? testId;
+  final int? first;
+  final int? offset;
+  final int? numberOfQuestions;
 
   @override
   _BubbleQuestionsWidgetState createState() => _BubbleQuestionsWidgetState();

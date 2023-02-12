@@ -126,7 +126,12 @@ class _PracticeQuetionsPageCopyCopyWidgetState
                         padding: MediaQuery.of(context).viewInsets,
                         child: Container(
                           height: MediaQuery.of(context).size.height * 1,
-                          child: BubbleQuestionsWidget(),
+                          child: BubbleQuestionsWidget(
+                            testId: widget.testId,
+                            first: widget.first,
+                            offset: widget.offset,
+                            numberOfQuestions: widget.numberOfQuestions,
+                          ),
                         ),
                       );
                     },

@@ -5,6 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BubbleQuestionsModel extends FlutterFlowModel {
+  ///  Local state fields for this component.
+
+  int? numberOfQuestions;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
