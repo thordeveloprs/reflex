@@ -95,6 +95,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'NotesPage',
+              path: 'notesPage',
+              builder: (context, params) => NotesPageWidget(),
+            ),
+            FFRoute(
               name: 'PracticeQuetionsPage',
               path: 'practiceQuetionsPage',
               builder: (context, params) => PracticeQuetionsPageWidget(
@@ -104,9 +109,58 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'NotesPage',
-              path: 'notesPage',
-              builder: (context, params) => NotesPageWidget(),
+              name: 'CreateAndPreviewTestPage',
+              path: 'createAndPreviewTestPage',
+              builder: (context, params) => CreateAndPreviewTestPageWidget(),
+            ),
+            FFRoute(
+              name: 'CreateTestPage',
+              path: 'createTestPage',
+              builder: (context, params) => CreateTestPageWidget(),
+            ),
+            FFRoute(
+              name: 'CreateTestResultPage',
+              path: 'createTestResultPage',
+              builder: (context, params) => CreateTestResultPageWidget(),
+            ),
+            FFRoute(
+              name: 'TestList',
+              path: 'testList',
+              builder: (context, params) => TestListWidget(
+                pdfLink: params.getParam('pdfLink', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'StartTestPage',
+              path: 'startTestPage',
+              builder: (context, params) => StartTestPageWidget(),
+            ),
+            FFRoute(
+              name: 'testingNew',
+              path: 'testingNew',
+              builder: (context, params) => TestingNewWidget(),
+            ),
+            FFRoute(
+              name: 'PracticeQuetionsPageCopy',
+              path: 'practiceQuetionsPageCopy',
+              builder: (context, params) => PracticeQuetionsPageCopyWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+              ),
+            ),
+            FFRoute(
+              name: 'PracticeQuetionsPageCopyCopy',
+              path: 'practiceQuetionsPageCopyCopy',
+              builder: (context, params) => PracticeQuetionsPageCopyCopyWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

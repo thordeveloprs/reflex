@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'nav_bar_model.dart';
+export 'nav_bar_model.dart';
 
 class NavBarWidget extends StatefulWidget {
   const NavBarWidget({Key? key}) : super(key: key);
@@ -12,6 +14,27 @@ class NavBarWidget extends StatefulWidget {
 }
 
 class _NavBarWidgetState extends State<NavBarWidget> {
+  late NavBarModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => NavBarModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -28,59 +51,156 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                  child: Icon(
-                    Icons.home,
-                    color: Colors.black,
-                    size: 20,
+            InkWell(
+              onTap: () async {
+                FFAppState().update(() {
+                  FFAppState().homeVisibility = true;
+                  FFAppState().testVisibility = false;
+                  FFAppState().notesVisibility = false;
+                });
+
+                context.pushNamed('PracticePage');
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (FFAppState().homeVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.home,
+                            color: Colors.black,
+                            size: 20,
+                          ),
+                        ),
+                      if (!FFAppState().homeVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.home_outlined,
+                            color: Color(0xFF3D444D),
+                            size: 28,
+                          ),
+                        ),
+                    ],
                   ),
-                ),
-                Text(
-                  'Practice',
-                  style: FlutterFlowTheme.of(context).bodyText1,
-                ),
-              ],
+                  Text(
+                    'Practice',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FFAppState().homeVisibility
+                              ? Colors.black
+                              : Color(0xFF8E9BA3),
+                        ),
+                  ),
+                ],
+              ),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                  child: Icon(
-                    Icons.edit_outlined,
-                    color: Colors.black,
-                    size: 25,
+            InkWell(
+              onTap: () async {
+                FFAppState().update(() {
+                  FFAppState().homeVisibility = false;
+                  FFAppState().testVisibility = true;
+                  FFAppState().notesVisibility = false;
+                });
+
+                context.pushNamed('CreateAndPreviewTestPage');
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (FFAppState().testVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.mode_edit,
+                            color: Colors.black,
+                            size: 25,
+                          ),
+                        ),
+                      if (!FFAppState().testVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.edit_outlined,
+                            color: Color(0xFF3D444D),
+                            size: 25,
+                          ),
+                        ),
+                    ],
                   ),
-                ),
-                Text(
-                  'Text',
-                  style: FlutterFlowTheme.of(context).bodyText1,
-                ),
-              ],
+                  Text(
+                    'Text',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FFAppState().testVisibility
+                              ? Colors.black
+                              : Color(0xFF8E9BA3),
+                        ),
+                  ),
+                ],
+              ),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
-                  child: Icon(
-                    Icons.book_sharp,
-                    color: Colors.black,
-                    size: 25,
+            InkWell(
+              onTap: () async {
+                FFAppState().update(() {
+                  FFAppState().homeVisibility = false;
+                  FFAppState().testVisibility = false;
+                  FFAppState().notesVisibility = true;
+                });
+
+                context.pushNamed('NotesPage');
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (FFAppState().notesVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.book_sharp,
+                            color: Colors.black,
+                            size: 25,
+                          ),
+                        ),
+                      if (!FFAppState().notesVisibility)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          child: Icon(
+                            Icons.book_outlined,
+                            color: Color(0xFF3D444D),
+                            size: 25,
+                          ),
+                        ),
+                    ],
                   ),
-                ),
-                Text(
-                  'Notes',
-                  style: FlutterFlowTheme.of(context).bodyText1,
-                ),
-              ],
+                  Text(
+                    'Notes',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FFAppState().notesVisibility
+                              ? Colors.black
+                              : Color(0xFF8E9BA3),
+                        ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

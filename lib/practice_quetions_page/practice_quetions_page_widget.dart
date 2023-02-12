@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'practice_quetions_page_model.dart';
+export 'practice_quetions_page_model.dart';
 
 class PracticeQuetionsPageWidget extends StatefulWidget {
   const PracticeQuetionsPageWidget({
@@ -27,12 +29,16 @@ class PracticeQuetionsPageWidget extends StatefulWidget {
 
 class _PracticeQuetionsPageWidgetState
     extends State<PracticeQuetionsPageWidget> {
-  final _unfocusNode = FocusNode();
+  late PracticeQuetionsPageModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => PracticeQuetionsPageModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.checkingParameter(
@@ -40,11 +46,20 @@ class _PracticeQuetionsPageWidgetState
         widget.first!,
         widget.offset!,
       );
+      _model.apiResult4th = await PracticeGroup
+          .getPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall
+          .call(
+        testId: widget.testId,
+        first: widget.first,
+        offset: widget.offset,
+      );
     });
   }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -53,95 +68,70 @@ class _PracticeQuetionsPageWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FutureBuilder<ApiCallResponse>(
-      future: PracticeGroup
-          .getPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall
-          .call(
-        testId: widget.testId,
-        first: widget.first,
-        offset: widget.offset,
-      ),
-      builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50,
-              height: 50,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Color(0xFFEDEDED),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                    child: InkWell(
+                      onTap: () async {
+                        context.pop();
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                        size: 29,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    'Anatomy',
+                    style: FlutterFlowTheme.of(context).title2.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                  ),
+                ],
+              ),
+              Icon(
+                Icons.grid_view,
+                color: Color(0xFF00629F),
+                size: 29,
+              ),
+            ],
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2,
+        ),
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            child: wrapWithModel(
+              model: _model.quetionTabsModel,
+              updateCallback: () => setState(() {}),
+              child: QuetionTabsWidget(
+                testId: widget.testId,
+                first: widget.first,
+                offset: widget.offset,
               ),
             ),
-          );
-        }
-        final practiceQuetionsPageGetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsResponse =
-            snapshot.data!;
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: Color(0xFFEDEDED),
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            automaticallyImplyLeading: false,
-            title: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
-                      child: InkWell(
-                        onTap: () async {
-                          context.pop();
-                        },
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
-                          size: 29,
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () async {
-                        await actions.chkJson(
-                          getJsonField(
-                            practiceQuetionsPageGetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsResponse
-                                .jsonBody,
-                            r'''$.data.test.questions.edges[:].node''',
-                          )!,
-                        );
-                      },
-                      child: Text(
-                        'Anatomy',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                              fontSize: 18,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
-                Icon(
-                  Icons.grid_view,
-                  color: Color(0xFF00629F),
-                  size: 29,
-                ),
-              ],
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 2,
           ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: QuetionTabsWidget(),
-            ),
-          ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

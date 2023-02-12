@@ -7,7 +7,11 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future chkJson(List<dynamic> jList) async {
+List<dynamic> chkJson(List<dynamic> jList) {
   // Add your function code here!
+  // for (int i = 0; i < jList.length; i++) {
+  //   print(jList[i]['node']['id']);
+  // }
   print(jList);
+  return jList;
 }

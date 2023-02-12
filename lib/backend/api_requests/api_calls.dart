@@ -147,8 +147,8 @@ class ResetAttemptsOfAPracticeTestShownOnClickingOnTheThreeDotsBesidesTestNameCa
 
 class GetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall {
   Future<ApiCallResponse> call({
-    String? testId = '',
-    int? first = 10,
+    String? testId = 'VGVzdDoyMTIzNjI1',
+    int? first = 400,
     int? offset = 0,
   }) {
     final body = '''
@@ -360,6 +360,11 @@ class TestGroup {
   static ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall
       listOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall =
       ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall();
+  static GetPreviousYearTestsInTestsTabCall getPreviousYearTestsInTestsTabCall =
+      GetPreviousYearTestsInTestsTabCall();
+  static GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall
+      getSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall =
+      GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall();
 }
 
 class ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall {
@@ -397,6 +402,80 @@ class ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall {
   dynamic myCustomTests(dynamic response) => getJsonField(
         response,
         r'''$.data.me.customPGTests.edges[:].node''',
+        true,
+      );
+}
+
+class GetPreviousYearTestsInTestsTabCall {
+  Future<ApiCallResponse> call({
+    String? courseId = 'Q291cnNlOjIxMzU=',
+  }) {
+    final body = '''
+{
+  "query": "query GetPracticeModeTestList(\$id: ID!) {\\n  course(id: \$id) {\\n    tests(orderBy: [SEQID, ID], where: {allowPracticeMode: false}) {\\n      total\\n      edges {\\n        node {\\n          id\\n          name\\n          numQuestions\\n          durationInMin\\n        }\\n      }\\n    }\\n  }\\n}\\n",
+  "variables": "{\\"id\\": \\"${courseId}\\"}",
+  "operationName": "GetPracticeModeTestList"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get previous year tests in tests tab',
+      apiUrl: '${TestGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic previousTest(dynamic response) => getJsonField(
+        response,
+        r'''$.data.course.tests.edges[:].node''',
+        true,
+      );
+}
+
+class GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall {
+  Future<ApiCallResponse> call({
+    String? courseId = 'Q291cnNlOjIxMzU=',
+  }) {
+    final body = '''
+{
+  "query": "query GetCourseSubjectAndTopicList(\$id: ID!) {\\n  course(id: \$id) {\\n    subjects {\\n      total\\n      edges {\\n        node {\\n          id\\n          name\\n          topics(orderBy: SEQID) {\\n            total\\n            edges {\\n              node {\\n                id\\n                name\\n              }\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n}",
+  "variables": "{\\n  \\"id\\": \\"${courseId}\\"\\n}",
+  "operationName": "GetCourseSubjectAndTopicList"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'Get subjects and chapters for the custom test creation using questions from chosen subjects and chapters',
+      apiUrl: '${TestGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic subjectWithChapters(dynamic response) => getJsonField(
+        response,
+        r'''$.data.course.subjects.edges[:].node''',
+        true,
+      );
+  dynamic chapters(dynamic response) => getJsonField(
+        response,
+        r'''$.data.course.subjects.edges[:].node.topics.edges[:].node''',
         true,
       );
 }
@@ -537,6 +616,29 @@ class PaymentGroup {
 }
 
 /// End Payment Group Code
+
+class MockServeCall {
+  static Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Mock Serve',
+      apiUrl:
+          'https://aada32bc-36ea-48c1-ac1f-fbcf3d5e6f81.mock.pstmn.io/graphql',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic testQuestions(dynamic response) => getJsonField(
+        response,
+        r'''$.data.test.questions.edges[:].node''',
+        true,
+      );
+}
 
 class ApiPagingParams {
   int nextPageNumber = 0;
