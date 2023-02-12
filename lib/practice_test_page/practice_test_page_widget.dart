@@ -93,25 +93,20 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                           ),
                         ),
                       ),
-                      InkWell(
-                        onTap: () async {
-                          context.pushNamed('testingNew');
-                        },
-                        child: Text(
-                          getJsonField(
-                            practiceTestPageGetPracticeTestDetailsForAnExampleSubjectAnatomyResponse
-                                .jsonBody,
-                            r'''$.data.test.name''',
-                          ).toString().maybeHandleOverflow(
-                                maxChars: 25,
-                                replacement: '…',
-                              ),
-                          style: FlutterFlowTheme.of(context).title2.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.black,
-                                fontSize: 18,
-                              ),
-                        ),
+                      Text(
+                        getJsonField(
+                          practiceTestPageGetPracticeTestDetailsForAnExampleSubjectAnatomyResponse
+                              .jsonBody,
+                          r'''$.data.test.name''',
+                        ).toString().maybeHandleOverflow(
+                              maxChars: 25,
+                              replacement: '…',
+                            ),
+                        style: FlutterFlowTheme.of(context).title2.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
                       ),
                     ],
                   ),

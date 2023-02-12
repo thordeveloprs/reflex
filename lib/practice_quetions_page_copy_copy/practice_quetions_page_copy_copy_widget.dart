@@ -15,16 +15,20 @@ export 'practice_quetions_page_copy_copy_model.dart';
 class PracticeQuetionsPageCopyCopyWidget extends StatefulWidget {
   const PracticeQuetionsPageCopyCopyWidget({
     Key? key,
-    this.testId,
-    this.first,
-    this.offset,
-    this.numberOfQuestions,
-  }) : super(key: key);
+    String? testId,
+    int? first,
+    int? offset,
+    int? numberOfQuestions,
+  })  : this.testId = testId ?? 'dfgdfg',
+        this.first = first ?? 0,
+        this.offset = offset ?? 0,
+        this.numberOfQuestions = numberOfQuestions ?? 0,
+        super(key: key);
 
-  final String? testId;
-  final int? first;
-  final int? offset;
-  final int? numberOfQuestions;
+  final String testId;
+  final int first;
+  final int offset;
+  final int numberOfQuestions;
 
   @override
   _PracticeQuetionsPageCopyCopyWidgetState createState() =>
@@ -45,11 +49,6 @@ class _PracticeQuetionsPageCopyCopyWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.checkingParameter(
-        widget.testId!,
-        widget.first!,
-        widget.offset!,
-      );
       _model.apiResult4th = await MockServeCall.call();
       _model.newJsonList = await actions.chkJson(
         MockServeCall.testQuestions(

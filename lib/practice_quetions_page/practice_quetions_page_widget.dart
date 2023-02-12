@@ -1,10 +1,7 @@
-import '../backend/api_requests/api_calls.dart';
 import '../components/quetion_tabs_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'practice_quetions_page_model.dart';
@@ -38,22 +35,6 @@ class _PracticeQuetionsPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PracticeQuetionsPageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.checkingParameter(
-        widget.testId!,
-        widget.first!,
-        widget.offset!,
-      );
-      _model.apiResult4th = await PracticeGroup
-          .getPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall
-          .call(
-        testId: widget.testId,
-        first: widget.first,
-        offset: widget.offset,
-      );
-    });
   }
 
   @override

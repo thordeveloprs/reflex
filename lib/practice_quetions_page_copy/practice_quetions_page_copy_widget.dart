@@ -45,11 +45,6 @@ class _PracticeQuetionsPageCopyWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.checkingParameter(
-        widget.testId!,
-        widget.first!,
-        widget.offset!,
-      );
       _model.apiResult4th = await PracticeGroup
           .getPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall
           .call(
