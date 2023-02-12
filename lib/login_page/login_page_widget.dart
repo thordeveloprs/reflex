@@ -124,7 +124,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             currentJwtToken!,
                           );
 
-                          context.goNamedAuth('PracticePage', mounted);
+                          context.goNamedAuth('PracticeTestPage', mounted);
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
