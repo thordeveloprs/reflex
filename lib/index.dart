@@ -15,7 +15,5 @@ export 'create_test_result_page/create_test_result_page_widget.dart'
 export 'test_list/test_list_widget.dart' show TestListWidget;
 export 'start_test_page/start_test_page_widget.dart' show StartTestPageWidget;
 export 'testing_new/testing_new_widget.dart' show TestingNewWidget;
-export 'practice_quetions_page_copy/practice_quetions_page_copy_widget.dart'
-    show PracticeQuetionsPageCopyWidget;
 export 'practice_quetions_page_copy_copy/practice_quetions_page_copy_copy_widget.dart'
     show PracticeQuetionsPageCopyCopyWidget;

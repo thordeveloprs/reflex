@@ -103,3 +103,14 @@ String converHtmlIntoString(String htmlString) {
 
   return htmlString;
 }
+
+List<int> getNumberOfTabs(
+  int currentIndex,
+  List<dynamic> listForLength,
+) {
+  List<int> newList = [];
+  for (int i = currentIndex; i < listForLength.length; i++) {
+    newList.add(++currentIndex);
+  }
+  return newList;
+}

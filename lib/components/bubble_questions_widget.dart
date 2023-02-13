@@ -76,20 +76,266 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              onTap: () async {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(
-                                Icons.cancel,
-                                color: Colors.black,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 110,
+                                height: 3,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF838383),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 15, 20, 20),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                onTap: () async {
+                                  Navigator.pop(context);
+                                },
+                                child: Icon(
+                                  Icons.cancel_outlined,
+                                  color: Color(0xFF00629F),
+                                  size: 20,
+                                ),
+                              ),
+                              Text(
+                                'Question Tracker',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                              Icon(
+                                Icons.cancel_outlined,
+                                color: Color(0x0000629F),
                                 size: 24,
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 12),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 15,
+                                          height: 15,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFF2743),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5, 0, 0, 0),
+                                          child: Text(
+                                            'Incorrect',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFFA6A6A6),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5, 0, 0, 0),
+                                          child: Text(
+                                            '(01/100)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFFFF2743),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        width: 15,
+                                        height: 15,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF78C0DF),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: Text(
+                                          'Bookmark',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFFA6A6A6),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: Text(
+                                          '(01/100)',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF78C0DF),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 12),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 15,
+                                          height: 15,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF5EB85E),
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5, 0, 0, 0),
+                                          child: Text(
+                                            'Incorrect',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFFA6A6A6),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5, 0, 0, 0),
+                                          child: Text(
+                                            '(01/100)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF5EB85E),
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Container(
+                                        width: 15,
+                                        height: 15,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFA6A6A6),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: Text(
+                                          'Correct',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFFA6A6A6),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 0, 0, 0),
+                                        child: Text(
+                                          '(01/100)',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFFA6A6A6),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Color(0xFFA6A6A6),
                         ),
                         Expanded(
                           child: Padding(
@@ -100,8 +346,8 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                               decoration: BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
-                                  final queList =
-                                      FFAppState().numberOfTabs.toList();
+                                  final quetionList =
+                                      FFAppState().questionList.toList();
                                   return GridView.builder(
                                     padding: EdgeInsets.zero,
                                     gridDelegate:
@@ -113,36 +359,64 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                     ),
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
-                                    itemCount: queList.length,
-                                    itemBuilder: (context, queListIndex) {
-                                      final queListItem = queList[queListIndex];
-                                      return InkWell(
-                                        onTap: () async {
-                                          setState(() {
-                                            FFAppState().pageNumber =
-                                                queListIndex;
-                                          });
-                                          Navigator.pop(context);
+                                    itemCount: quetionList.length,
+                                    itemBuilder: (context, quetionListIndex) {
+                                      final quetionListItem =
+                                          quetionList[quetionListIndex];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            setState(() {
+                                              FFAppState().pageNumber =
+                                                  quetionListIndex;
+                                            });
+                                            Navigator.pop(context);
 
-                                          context.pushNamed(
-                                              'PracticeQuetionsPageCopy');
-                                        },
-                                        child: Container(
-                                          width: 100,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFF5151),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Text(
-                                            queListItem.toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Colors.white,
-                                                ),
+                                            context.pushNamed(
+                                                'PracticeQuetionsPageCopyCopy');
+                                          },
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                              color: getJsonField(
+                                                        quetionListItem,
+                                                        r'''$.userAnswer''',
+                                                      ) ==
+                                                      null
+                                                  ? (getJsonField(
+                                                            quetionListItem,
+                                                            r'''$.bookmarkQuestion''',
+                                                          ) !=
+                                                          null
+                                                      ? Color(0xFF78C0DF)
+                                                      : Color(0xFFA6A6A6))
+                                                  : (getJsonField(
+                                                            quetionListItem,
+                                                            r'''$.userAnswer.userAnswer''',
+                                                          ) ==
+                                                          getJsonField(
+                                                            quetionListItem,
+                                                            r'''$.correctOptionIndex''',
+                                                          )
+                                                      ? Color(0xFF5EB85E)
+                                                      : Color(0xFFFF2743)),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: Text(
+                                              (quetionListIndex + 1).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                      ),
+                                            ),
                                           ),
                                         ),
                                       );

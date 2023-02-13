@@ -67,16 +67,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => appStateNotifier.loggedIn
-          ? PracticeTestPageWidget()
-          : PracticePageWidget(),
+      errorBuilder: (context, _) =>
+          appStateNotifier.loggedIn ? PracticePageWidget() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PracticeTestPageWidget()
-              : PracticePageWidget(),
+              ? PracticePageWidget()
+              : LoginPageWidget(),
           routes: [
             FFRoute(
               name: 'LoginPage',
@@ -140,17 +139,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'testingNew',
               path: 'testingNew',
               builder: (context, params) => TestingNewWidget(),
-            ),
-            FFRoute(
-              name: 'PracticeQuetionsPageCopy',
-              path: 'practiceQuetionsPageCopy',
-              builder: (context, params) => PracticeQuetionsPageCopyWidget(
-                testId: params.getParam('testId', ParamType.String),
-                first: params.getParam('first', ParamType.int),
-                offset: params.getParam('offset', ParamType.int),
-                numberOfQuestions:
-                    params.getParam('numberOfQuestions', ParamType.int),
-              ),
             ),
             FFRoute(
               name: 'PracticeQuetionsPageCopyCopy',
@@ -324,7 +312,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/practicePage';
+            return '/loginPage';
           }
           return null;
         },

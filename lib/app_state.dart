@@ -173,6 +173,24 @@ class FFAppState extends ChangeNotifier {
   set isPageLoad(bool _value) {
     _isPageLoad = _value;
   }
+
+  List<int> _questionNumbers = [1, 2, 3, 4];
+  List<int> get questionNumbers => _questionNumbers;
+  set questionNumbers(List<int> _value) {
+    _questionNumbers = _value;
+  }
+
+  void addToQuestionNumbers(int _value) {
+    _questionNumbers.add(_value);
+  }
+
+  void removeFromQuestionNumbers(int _value) {
+    _questionNumbers.remove(_value);
+  }
+
+  void removeAtIndexFromQuestionNumbers(int _index) {
+    _questionNumbers.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
