@@ -255,7 +255,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   5, 0, 0, 0),
                                           child: Text(
-                                            'Incorrect',
+                                            'Correct',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -300,7 +300,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5, 0, 0, 0),
                                         child: Text(
-                                          'Correct',
+                                          'UnAttempted',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(

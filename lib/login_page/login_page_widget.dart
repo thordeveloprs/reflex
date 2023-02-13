@@ -117,14 +117,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         ),
                       );
                       FFAppState().update(() {
-                        FFAppState().jwtToken = currentJwtToken!;
-                        FFAppState().userName = currentUserDisplayName;
-                        FFAppState().emailId = currentUserEmail;
-                        FFAppState().displayImage = currentUserPhoto;
+                        FFAppState().jwtToken = getJsonField(
+                          _model.userJson,
+                          r'''$.accessToken''',
+                        ).toString();
+                        FFAppState().userName = getJsonField(
+                          _model.userJson,
+                          r'''$.name''',
+                        ).toString();
+                        FFAppState().emailId = getJsonField(
+                          _model.userJson,
+                          r'''$.email''',
+                        ).toString();
+                        FFAppState().displayImage = getJsonField(
+                          _model.userJson,
+                          r'''$.profile''',
+                        );
                       });
-                      await actions.seeTocken(
-                        currentJwtToken!,
-                      );
 
                       setState(() {});
                     },

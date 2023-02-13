@@ -13,7 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../auth/auth_util.dart';
 
 Future<dynamic> gmailLogin(BuildContext context) async {
-  late var auth;
+  String? accessToken;
   final _googleSignIn = GoogleSignIn();
   final signInFunc = () async {
     if (kIsWeb) {
@@ -22,24 +22,29 @@ Future<dynamic> gmailLogin(BuildContext context) async {
     }
 
     await signOutWithGoogle().catchError((_) => null);
-    auth = await (await _googleSignIn.signIn())?.authentication;
+    var auth = await (await _googleSignIn.signIn())?.authentication;
     if (auth == null) {
+      print("sadsadsadsad");
       return null;
     }
+    accessToken = auth.accessToken;
+    print("sdsddfsdf " + auth.accessToken.toString());
     final credential = GoogleAuthProvider.credential(
         idToken: auth.idToken, accessToken: auth.accessToken);
     return FirebaseAuth.instance.signInWithCredential(credential);
   };
 
-  User? userData = await signInOrCreateAccount(context, signInFunc, 'GOOGLE');
+  signInOrCreateAccount(context, signInFunc, 'GOOGLE');
+  UserCredential? userData = await signInFunc();
 
   dynamic userJson = {
-    "email": userData!.email,
-    "profile": userData.photoURL,
-    "name": userData.displayName,
-    "accessToken": auth.accessToken,
+    "email": userData!.user!.email,
+    "profile": userData.user!.photoURL,
+    "name": userData.user!.displayName,
+    "accessToken": userData.credential!.accessToken,
   };
 
+  print("sdsddfsdf " + userJson["accessToken"].toString());
   print("sdsddfsdf " + userJson.toString());
 
   return userJson;
