@@ -99,33 +99,43 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 5),
-                      child: InkWell(
-                        onTap: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          final user = await signInWithGoogle(context);
-                          if (user == null) {
-                            return;
-                          }
-                          FFAppState().update(() {
-                            FFAppState().jwtToken = currentJwtToken!;
-                            FFAppState().userName = currentUserDisplayName;
-                            FFAppState().emailId = currentUserEmail;
-                            FFAppState().displayImage = currentUserPhoto;
-                          });
-                          await actions.seeTocken(
-                            currentJwtToken!,
-                          );
+                  child: InkWell(
+                    onTap: () async {
+                      _model.userJson = await actions.gmailLogin(
+                        context,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            _model.userJson!.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 4000),
+                          backgroundColor: Colors.black,
+                        ),
+                      );
+                      FFAppState().update(() {
+                        FFAppState().jwtToken = currentJwtToken!;
+                        FFAppState().userName = currentUserDisplayName;
+                        FFAppState().emailId = currentUserEmail;
+                        FFAppState().displayImage = currentUserPhoto;
+                      });
+                      await actions.seeTocken(
+                        currentJwtToken!,
+                      );
 
-                          context.goNamedAuth('PracticePage', mounted);
-                        },
+                      setState(() {});
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 5),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
