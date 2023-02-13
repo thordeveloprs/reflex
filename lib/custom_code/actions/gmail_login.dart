@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../auth/auth_util.dart';
+import '../../auth/auth_util.dart';
 
 Future<dynamic> gmailLogin(BuildContext context) async {
   late var auth;

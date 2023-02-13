@@ -367,6 +367,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ],
                   ),
                 ),
+                if (false)
+                  InkWell(
+                    onTap: () async {
+                      GoRouter.of(context).prepareAuthEvent();
+                      final user = await signInWithGoogle(context);
+                      if (user == null) {
+                        return;
+                      }
+
+                      context.goNamedAuth('PracticePage', mounted);
+                    },
+                    child: Text(
+                      'Hello World',
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                  ),
               ],
             ),
           ),
