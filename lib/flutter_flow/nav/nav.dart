@@ -95,18 +95,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'NotesPage',
-              path: 'notesPage',
-              builder: (context, params) => NotesPageWidget(),
-            ),
-            FFRoute(
               name: 'PracticeQuetionsPage',
               path: 'practiceQuetionsPage',
               builder: (context, params) => PracticeQuetionsPageWidget(
                 testId: params.getParam('testId', ParamType.String),
                 first: params.getParam('first', ParamType.int),
                 offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
               ),
+            ),
+            FFRoute(
+              name: 'NotesPage',
+              path: 'notesPage',
+              builder: (context, params) => NotesPageWidget(),
             ),
             FFRoute(
               name: 'CreateAndPreviewTestPage',
@@ -141,14 +143,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => TestingNewWidget(),
             ),
             FFRoute(
-              name: 'PracticeQuetionsPageCopyCopy',
-              path: 'practiceQuetionsPageCopyCopy',
-              builder: (context, params) => PracticeQuetionsPageCopyCopyWidget(
-                testId: params.getParam('testId', ParamType.String),
-                first: params.getParam('first', ParamType.int),
-                offset: params.getParam('offset', ParamType.int),
-                numberOfQuestions:
-                    params.getParam('numberOfQuestions', ParamType.int),
+              name: 'OrderPage',
+              path: 'orderPage',
+              builder: (context, params) => OrderPageWidget(),
+            ),
+            FFRoute(
+              name: 'LearnMore',
+              path: 'learnMore',
+              builder: (context, params) => LearnMoreWidget(
+                value: params.getParam('value', ParamType.String),
+                is6MonthChecked:
+                    params.getParam('is6MonthChecked', ParamType.bool),
+                is1YearChecked:
+                    params.getParam('is1YearChecked', ParamType.bool),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

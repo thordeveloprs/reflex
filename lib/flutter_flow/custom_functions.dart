@@ -114,3 +114,22 @@ List<int> getNumberOfTabs(
   }
   return newList;
 }
+
+int getIntFromBase64(String idInBase64) {
+  List<String> splittedBase64 = [];
+
+  Codec<String, String> stringToBase64Url = utf8.fuse(base64Url);
+  // String encoded = stringToBase64Url.encode(idInBase64);
+  String decoded = stringToBase64Url.decode(idInBase64);
+  print(decoded.split(':'));
+  splittedBase64 = decoded.split(':');
+
+  return int.parse(splittedBase64[1]);
+}
+
+DateTime getDate(
+  DateTime currentDateTime,
+  int numberOfDays,
+) {
+  return currentDateTime.add(Duration(days: numberOfDays));
+}

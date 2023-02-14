@@ -185,7 +185,8 @@ class GetPracticeQuestionsForATestGivenIdOffsetAndFirstNQuestionsCall {
 class GetStatusOfAllPracticeQuestionsForATestForAGivenUserCall {
   Future<ApiCallResponse> call({
     int? testIdInt,
-    String? authToken = '',
+    String? authToken =
+        'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkxOTExOTkyLCJpYXQiOjE2NzYzNTk5OTJ9.7IHkbud_C4J72freq3HpsE2B9q5Z_K9yx9qHq4x20ys',
   }) {
     final body = '''
 {
@@ -221,10 +222,11 @@ class GetStatusOfAllPracticeQuestionsForATestForAGivenUserCall {
 
 class CreateAnswerForAPracticeQuestionByAUserWithSpecificMarkedOptionCall {
   Future<ApiCallResponse> call({
-    String? questionId = '',
-    String? userId = '',
-    int? userAnswer,
-    String? authToken = '',
+    String? questionId = 'UXVlc3Rpb246NzE3MQ==',
+    String? userId = 'VXNlcjo5Nw==',
+    int? userAnswer = 3,
+    String? authToken =
+        'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6OTcsInBob25lIjoiKzkxNzAyMjAwMTQzNSIsImV4cCI6MTY4OTQwOTQ5OSwiaWF0IjoxNjczODU3NDk5fQ.jNEEFn_BpF7JQoJEDB8lhEdKvujvuOHD12IrdP6_KFk',
   }) {
     final body = '''
 {

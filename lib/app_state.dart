@@ -27,13 +27,13 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  String _userName = '';
+  String _userName = 'Thor Developers';
   String get userName => _userName;
   set userName(String _value) {
     _userName = _value;
   }
 
-  String _emailId = '';
+  String _emailId = 'thordeveloper.tech@gmail.com';
   String get emailId => _emailId;
   set emailId(String _value) {
     _emailId = _value;
@@ -162,12 +162,6 @@ class FFAppState extends ChangeNotifier {
     _questionList.removeAt(_index);
   }
 
-  int _flag = 0;
-  int get flag => _flag;
-  set flag(int _value) {
-    _flag = _value;
-  }
-
   bool _isPageLoad = true;
   bool get isPageLoad => _isPageLoad;
   set isPageLoad(bool _value) {
@@ -190,6 +184,74 @@ class FFAppState extends ChangeNotifier {
 
   void removeAtIndexFromQuestionNumbers(int _index) {
     _questionNumbers.removeAt(_index);
+  }
+
+  String _numberOfTimes = '6 months';
+  String get numberOfTimes => _numberOfTimes;
+  set numberOfTimes(String _value) {
+    _numberOfTimes = _value;
+  }
+
+  double _actualAmount = 799;
+  double get actualAmount => _actualAmount;
+  set actualAmount(double _value) {
+    _actualAmount = _value;
+  }
+
+  double _discountAmount = 449;
+  double get discountAmount => _discountAmount;
+  set discountAmount(double _value) {
+    _discountAmount = _value;
+  }
+
+  bool _flag = true;
+  bool get flag => _flag;
+  set flag(bool _value) {
+    _flag = _value;
+  }
+
+  List<dynamic> _allQuestionsStatus = [];
+  List<dynamic> get allQuestionsStatus => _allQuestionsStatus;
+  set allQuestionsStatus(List<dynamic> _value) {
+    _allQuestionsStatus = _value;
+  }
+
+  void addToAllQuestionsStatus(dynamic _value) {
+    _allQuestionsStatus.add(_value);
+  }
+
+  void removeFromAllQuestionsStatus(dynamic _value) {
+    _allQuestionsStatus.remove(_value);
+  }
+
+  void removeAtIndexFromAllQuestionsStatus(int _index) {
+    _allQuestionsStatus.removeAt(_index);
+  }
+
+  String _mockUserName = 'Thor Developers';
+  String get mockUserName => _mockUserName;
+  set mockUserName(String _value) {
+    _mockUserName = _value;
+  }
+
+  String _mockEmail = 'thordeveloper.tech@gmail.com';
+  String get mockEmail => _mockEmail;
+  set mockEmail(String _value) {
+    _mockEmail = _value;
+  }
+
+  String _mockProfilePic =
+      'https://lh3.googleusercontent.com/a/AEdFTp6WiotPy2D7VWwzHoWTNxvqrZaLVGuQZSfIbG4N=s360-p-no';
+  String get mockProfilePic => _mockProfilePic;
+  set mockProfilePic(String _value) {
+    _mockProfilePic = _value;
+  }
+
+  String _subjectToken =
+      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkxOTExOTkyLCJpYXQiOjE2NzYzNTk5OTJ9.7IHkbud_C4J72freq3HpsE2B9q5Z_K9yx9qHq4x20ys';
+  String get subjectToken => _subjectToken;
+  set subjectToken(String _value) {
+    _subjectToken = _value;
   }
 }
 

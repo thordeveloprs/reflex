@@ -69,14 +69,19 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
             appBar: AppBar(
               backgroundColor: Color(0xFFD3E5F1),
               automaticallyImplyLeading: false,
-              title: Text(
-                'Notes',
-                style: FlutterFlowTheme.of(context).title2.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.black,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                    ),
+              title: InkWell(
+                onTap: () async {
+                  context.pushNamed('OrderPage');
+                },
+                child: Text(
+                  'Notes',
+                  style: FlutterFlowTheme.of(context).title2.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
               ),
               actions: [],
               centerTitle: false,

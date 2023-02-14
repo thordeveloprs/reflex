@@ -375,34 +375,13 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                             Navigator.pop(context);
 
                                             context.pushNamed(
-                                                'PracticeQuetionsPageCopyCopy');
+                                                'PracticeQuetionsPage');
                                           },
                                           child: Container(
                                             width: 100,
                                             height: 100,
                                             decoration: BoxDecoration(
-                                              color: getJsonField(
-                                                        quetionListItem,
-                                                        r'''$.userAnswer''',
-                                                      ) ==
-                                                      null
-                                                  ? (getJsonField(
-                                                            quetionListItem,
-                                                            r'''$.bookmarkQuestion''',
-                                                          ) !=
-                                                          null
-                                                      ? Color(0xFF78C0DF)
-                                                      : Color(0xFFA6A6A6))
-                                                  : (getJsonField(
-                                                            quetionListItem,
-                                                            r'''$.userAnswer.userAnswer''',
-                                                          ) ==
-                                                          getJsonField(
-                                                            quetionListItem,
-                                                            r'''$.correctOptionIndex''',
-                                                          )
-                                                      ? Color(0xFF5EB85E)
-                                                      : Color(0xFFFF2743)),
+                                              color: Color(0xFFFF5151),
                                               shape: BoxShape.circle,
                                             ),
                                             alignment:

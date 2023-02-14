@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/actions/index.dart' as actions;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'practice_test_page_model.dart';
@@ -31,6 +32,13 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PracticeTestPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().flag = true;
+      });
+    });
   }
 
   @override
@@ -244,9 +252,14 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                           )!,
                                           practiceTestSectionsIndex,
                                         );
+                                        setState(() {
+                                          FFAppState().flag = true;
+                                          FFAppState().pageNumber =
+                                              _model.offSet!;
+                                        });
 
                                         context.pushNamed(
-                                          'PracticeQuetionsPageCopyCopy',
+                                          'PracticeQuetionsPage',
                                           queryParams: {
                                             'testId': serializeParam(
                                               widget.teatId,
