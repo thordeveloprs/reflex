@@ -385,7 +385,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         return;
                       }
 
-                      context.goNamedAuth('PracticePage', mounted);
+                      context.goNamedAuth('PracticeTestPage', mounted);
                     },
                     child: Text(
                       'Hello World',
