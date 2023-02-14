@@ -340,21 +340,13 @@ class _PracticeQuetionsPageWidgetState
                                                                             r'''$.bookmarkQuestion''',
                                                                           ) !=
                                                                           null)
-                                                                        InkWell(
-                                                                          onTap:
-                                                                              () async {
-                                                                            await actions.chkJson(
-                                                                              FFAppState().allQuestionsStatus.toList(),
-                                                                            );
-                                                                          },
-                                                                          child:
-                                                                              Icon(
-                                                                            Icons.bookmark_sharp,
-                                                                            color:
-                                                                                Color(0xFF00629F),
-                                                                            size:
-                                                                                24,
-                                                                          ),
+                                                                        Icon(
+                                                                          Icons
+                                                                              .bookmark_sharp,
+                                                                          color:
+                                                                              Color(0xFF00629F),
+                                                                          size:
+                                                                              24,
                                                                         ),
                                                                       if (getJsonField(
                                                                             FFAppState().allQuestionsStatus[quetionListIndex],

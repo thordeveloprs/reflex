@@ -253,6 +253,12 @@ class FFAppState extends ChangeNotifier {
   set subjectToken(String _value) {
     _subjectToken = _value;
   }
+
+  dynamic _bookMarkEmptyJson = jsonDecode('{\"name\":\"xyz\"}');
+  dynamic get bookMarkEmptyJson => _bookMarkEmptyJson;
+  set bookMarkEmptyJson(dynamic _value) {
+    _bookMarkEmptyJson = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

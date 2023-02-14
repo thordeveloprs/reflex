@@ -597,7 +597,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              if (_model.is1YearChecked ?? true)
+                                              if (_model.is1YearChecked)
                                                 Expanded(
                                                   child: Container(
                                                     height: 45,
@@ -637,7 +637,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              if (!_model.is1YearChecked!)
+                                              if (!_model.is1YearChecked)
                                                 Expanded(
                                                   child: InkWell(
                                                     onTap: () async {
@@ -846,7 +846,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           ),
                                         ),
                                       ),
-                                    if (_model.is1YearChecked ?? true)
+                                    if (_model.is1YearChecked)
                                       Expanded(
                                         child: RichText(
                                           text: TextSpan(

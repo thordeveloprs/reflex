@@ -11,7 +11,7 @@ class OrderPageModel extends FlutterFlowModel {
 
   bool is6MonthChecked = true;
 
-  bool? is1YearChecked;
+  bool is1YearChecked = false;
 
   ///  State fields for stateful widgets in this page.
 

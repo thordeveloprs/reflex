@@ -137,7 +137,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
                         child: Container(
                           width: double.infinity,
-                          height: 122.1,
+                          height: 100,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -287,31 +287,6 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                         ),
                                       ),
                                   ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 25, 0),
-                                        child: Text(
-                                          'Learn more',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color: Color(0xFF2E60EE),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
                               ],
                             ),
