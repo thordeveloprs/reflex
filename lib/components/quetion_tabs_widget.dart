@@ -1,6 +1,6 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +40,7 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
@@ -62,8 +62,8 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primaryColor,
               ),
@@ -85,7 +85,7 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                       labelColor: Colors.black,
                       labelStyle: FlutterFlowTheme.of(context).bodyText1,
                       indicatorColor: Colors.black,
-                      indicatorWeight: 8,
+                      indicatorWeight: 8.0,
                       tabs: [
                         Tab(
                           text: ' 1',
@@ -101,10 +101,10 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                               Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 10, 10, 10),
+                                      10.0, 10.0, 10.0, 10.0),
                                   child: Container(
                                     width: double.infinity,
-                                    height: 100,
+                                    height: 100.0,
                                     decoration: BoxDecoration(
                                       color: Color(0x00FFFFFF),
                                     ),
@@ -115,7 +115,7 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15, 10, 15, 0),
+                                                    15.0, 10.0, 15.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -123,7 +123,8 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 10, 0),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -132,13 +133,13 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                                         Icons.bookmark_sharp,
                                                         color:
                                                             Color(0xFF00629F),
-                                                        size: 24,
+                                                        size: 24.0,
                                                       ),
                                                       Icon(
                                                         Icons.bookmark_border,
                                                         color:
                                                             Color(0xFF00629F),
-                                                        size: 24,
+                                                        size: 24.0,
                                                       ),
                                                     ],
                                                   ),
@@ -146,7 +147,7 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                                 Icon(
                                                   Icons.more_vert,
                                                   color: Color(0xFF00629F),
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
                                               ],
                                             ),
@@ -160,7 +161,7 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                             ),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5, 5, 5, 5),
+                                                  .fromSTEB(5.0, 5.0, 5.0, 5.0),
                                               child: Text(
                                                 'Question',
                                                 style:
@@ -172,17 +173,17 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
+                                                    10.0, 10.0, 10.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              height: 50,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF00629F),
                                                 borderRadius:
-                                                    BorderRadius.circular(25),
+                                                    BorderRadius.circular(25.0),
                                               ),
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '1',
                                                 style:
@@ -198,17 +199,17 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
+                                                    10.0, 10.0, 10.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              height: 50,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF00629F),
                                                 borderRadius:
-                                                    BorderRadius.circular(25),
+                                                    BorderRadius.circular(25.0),
                                               ),
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '2',
                                                 style:
@@ -224,17 +225,17 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
+                                                    10.0, 10.0, 10.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              height: 50,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF00629F),
                                                 borderRadius:
-                                                    BorderRadius.circular(25),
+                                                    BorderRadius.circular(25.0),
                                               ),
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '3',
                                                 style:
@@ -250,17 +251,17 @@ class _QuetionTabsWidgetState extends State<QuetionTabsWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 0),
+                                                    10.0, 10.0, 10.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              height: 50,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF00629F),
                                                 borderRadius:
-                                                    BorderRadius.circular(25),
+                                                    BorderRadius.circular(25.0),
                                               ),
-                                              alignment:
-                                                  AlignmentDirectional(0, 0),
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '4',
                                                 style:

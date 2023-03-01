@@ -1,10 +1,11 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/bubble_questions_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../custom_code/widgets/index.dart' as custom_widgets;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/components/bubble_questions_widget.dart';
+import '/components/report_aproblem_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -121,24 +122,33 @@ class _PracticeQuetionsPageWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                     child: InkWell(
                       onTap: () async {
-                        context.pop();
+                        context.pushNamed(
+                          'PracticeTestPage',
+                          queryParams: {
+                            'teatId': serializeParam(
+                              widget.testId,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
                       child: Icon(
                         Icons.arrow_back,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                   ),
                   Text(
-                    'Anatomy',
+                    FFAppState().topicNameForEachPage,
                     style: FlutterFlowTheme.of(context).title2.override(
                           fontFamily: 'Poppins',
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 18.0,
                         ),
                   ),
                 ],
@@ -154,7 +164,7 @@ class _PracticeQuetionsPageWidgetState
                       return Padding(
                         padding: MediaQuery.of(context).viewInsets,
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 1,
+                          height: MediaQuery.of(context).size.height * 1.0,
                           child: BubbleQuestionsWidget(
                             testId: widget.testId,
                             first: widget.first,
@@ -169,14 +179,14 @@ class _PracticeQuetionsPageWidgetState
                 child: Icon(
                   Icons.grid_view,
                   color: Color(0xFF00629F),
-                  size: 29,
+                  size: 29.0,
                 ),
               ),
             ],
           ),
           actions: [],
           centerTitle: false,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           child: GestureDetector(
@@ -197,7 +207,7 @@ class _PracticeQuetionsPageWidgetState
                           Expanded(
                             child: Container(
                               width: double.infinity,
-                              height: 100,
+                              height: 100.0,
                               decoration: BoxDecoration(
                                 color: Color(0x00FFFFFF),
                               ),
@@ -207,10 +217,10 @@ class _PracticeQuetionsPageWidgetState
                                       FFAppState().questionList.toList();
                                   return Container(
                                     width: double.infinity,
-                                    height: 500,
+                                    height: 500.0,
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 50),
+                                          0.0, 0.0, 0.0, 50.0),
                                       child: PageView.builder(
                                         controller: _model
                                                 .pageViewController ??=
@@ -233,10 +243,11 @@ class _PracticeQuetionsPageWidgetState
                                               Expanded(
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10, 10, 10, 10),
+                                                      .fromSTEB(10.0, 10.0,
+                                                          10.0, 10.0),
                                                   child: Container(
                                                     width: double.infinity,
-                                                    height: 100,
+                                                    height: 100.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -260,13 +271,13 @@ class _PracticeQuetionsPageWidgetState
                                                                     color: Colors
                                                                         .transparent,
                                                                     elevation:
-                                                                        2,
+                                                                        2.0,
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          100,
+                                                                          100.0,
                                                                       height:
-                                                                          40,
+                                                                          40.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Color(
@@ -274,8 +285,8 @@ class _PracticeQuetionsPageWidgetState
                                                                       ),
                                                                       alignment:
                                                                           AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Text(
                                                                         (quetionListIndex +
@@ -290,12 +301,13 @@ class _PracticeQuetionsPageWidgetState
                                                                     color: Colors
                                                                         .transparent,
                                                                     elevation:
-                                                                        2,
+                                                                        2.0,
                                                                     child:
                                                                         Container(
                                                                       width:
-                                                                          100,
-                                                                      height: 5,
+                                                                          100.0,
+                                                                      height:
+                                                                          5.0,
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: Colors
@@ -311,10 +323,10 @@ class _PracticeQuetionsPageWidgetState
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        15,
-                                                                        10,
-                                                                        15,
-                                                                        0),
+                                                                        15.0,
+                                                                        10.0,
+                                                                        15.0,
+                                                                        0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -326,10 +338,10 @@ class _PracticeQuetionsPageWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          10,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
                                                                   child: Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -340,36 +352,112 @@ class _PracticeQuetionsPageWidgetState
                                                                             r'''$.bookmarkQuestion''',
                                                                           ) !=
                                                                           null)
-                                                                        Icon(
-                                                                          Icons
-                                                                              .bookmark_sharp,
-                                                                          color:
-                                                                              Color(0xFF00629F),
-                                                                          size:
-                                                                              24,
+                                                                        InkWell(
+                                                                          onTap:
+                                                                              () async {
+                                                                            setState(() {
+                                                                              FFAppState().allQuestionsStatus = functions.getupdatedBookmarkRemove(FFAppState().allQuestionsStatus.toList(), FFAppState().bookMarkEmptyJson, quetionListIndex).toList();
+                                                                            });
+                                                                            _model.apiResultdn0 =
+                                                                                await PracticeGroup.createOrDeleteBookmarkForAPracticeQuestionByAUserCall.call(
+                                                                              questionId: getJsonField(
+                                                                                quetionListItem,
+                                                                                r'''$.id''',
+                                                                              ).toString(),
+                                                                              userId: functions.getBase64OfUserId(FFAppState().userIdInt),
+                                                                              authToken: FFAppState().subjectToken,
+                                                                            );
+
+                                                                            setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.bookmark_sharp,
+                                                                            color:
+                                                                                Color(0xFF00629F),
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
                                                                         ),
                                                                       if (getJsonField(
                                                                             FFAppState().allQuestionsStatus[quetionListIndex],
                                                                             r'''$.bookmarkQuestion''',
                                                                           ) ==
                                                                           null)
-                                                                        Icon(
-                                                                          Icons
-                                                                              .bookmark_border,
-                                                                          color:
-                                                                              Color(0xFF00629F),
-                                                                          size:
-                                                                              24,
+                                                                        InkWell(
+                                                                          onTap:
+                                                                              () async {
+                                                                            setState(() {
+                                                                              FFAppState().allQuestionsStatus = functions.getupdatedBookmark(FFAppState().allQuestionsStatus.toList(), FFAppState().bookMarkEmptyJson, quetionListIndex).toList();
+                                                                            });
+                                                                            _model.apiResultdn1 =
+                                                                                await PracticeGroup.createOrDeleteBookmarkForAPracticeQuestionByAUserCall.call(
+                                                                              questionId: getJsonField(
+                                                                                quetionListItem,
+                                                                                r'''$.id''',
+                                                                              ).toString(),
+                                                                              userId: functions.getBase64OfUserId(FFAppState().userIdInt),
+                                                                              authToken: FFAppState().subjectToken,
+                                                                            );
+
+                                                                            setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.bookmark_border,
+                                                                            color:
+                                                                                Color(0xFF00629F),
+                                                                            size:
+                                                                                24.0,
+                                                                          ),
                                                                         ),
                                                                     ],
                                                                   ),
                                                                 ),
-                                                                Icon(
-                                                                  Icons
-                                                                      .more_vert,
-                                                                  color: Color(
-                                                                      0xFF00629F),
-                                                                  size: 24,
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      enableDrag:
+                                                                          false,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return Padding(
+                                                                          padding:
+                                                                              MediaQuery.of(context).viewInsets,
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                MediaQuery.of(context).size.height * 1.0,
+                                                                            child:
+                                                                                ReportAproblemWidget(
+                                                                              testId: widget.testId,
+                                                                              questionId: getJsonField(
+                                                                                quetionListItem,
+                                                                                r'''$.id''',
+                                                                              ).toString(),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        setState(
+                                                                            () {}));
+                                                                  },
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .more_vert,
+                                                                    color: Color(
+                                                                        0xFF00629F),
+                                                                    size: 24.0,
+                                                                  ),
                                                                 ),
                                                               ],
                                                             ),
@@ -411,51 +499,145 @@ class _PracticeQuetionsPageWidgetState
                                                                   return Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10,
-                                                                            10,
-                                                                            10,
-                                                                            0),
+                                                                            10.0,
+                                                                            10.0,
+                                                                            10.0,
+                                                                            0.0),
                                                                     child:
-                                                                        Container(
-                                                                      width: double
-                                                                          .infinity,
-                                                                      height:
-                                                                          50,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Color(
-                                                                            0xFF00629F),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(25),
-                                                                      ),
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0,
-                                                                              0),
+                                                                        InkWell(
+                                                                      onTap:
+                                                                          () async {
+                                                                        setState(
+                                                                            () {
+                                                                          FFAppState().allQuestionsStatus = functions
+                                                                              .getUpdatedQuestionsStatusList(FFAppState().allQuestionsStatus.toList(), quetionListIndex, queNumbersIndex)
+                                                                              .toList();
+                                                                        });
+                                                                        _model.apiResultixv = await PracticeGroup
+                                                                            .createAnswerForAPracticeQuestionByAUserWithSpecificMarkedOptionCall
+                                                                            .call(
+                                                                          questionId:
+                                                                              getJsonField(
+                                                                            quetionListItem,
+                                                                            r'''$.id''',
+                                                                          ).toString(),
+                                                                          userId:
+                                                                              functions.getBase64OfUserId(FFAppState().userIdInt),
+                                                                          userAnswer:
+                                                                              queNumbersIndex,
+                                                                          authToken:
+                                                                              FFAppState().subjectToken,
+                                                                        );
+
+                                                                        setState(
+                                                                            () {});
+                                                                      },
                                                                       child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          Text(
-                                                                            queNumbersItem.toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  color: Colors.white,
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                ),
+                                                                          Material(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        elevation:
+                                                                            4.0,
+                                                                        shape:
+                                                                            RoundedRectangleBorder(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(25.0),
+                                                                        ),
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          height:
+                                                                              50.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color: getJsonField(
+                                                                                      FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                      r'''$.userAnswer''',
+                                                                                    ) !=
+                                                                                    null
+                                                                                ? ((getJsonField(
+                                                                                              FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                              r'''$.userAnswer.userAnswer''',
+                                                                                            ) ==
+                                                                                            getJsonField(
+                                                                                              FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                              r'''$.correctOptionIndex''',
+                                                                                            )) &&
+                                                                                        (queNumbersIndex ==
+                                                                                            getJsonField(
+                                                                                              FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                              r'''$.correctOptionIndex''',
+                                                                                            ))
+                                                                                    ? Color(0xFF5EB85E)
+                                                                                    : ((getJsonField(
+                                                                                                  FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                                  r'''$.correctOptionIndex''',
+                                                                                                ) !=
+                                                                                                queNumbersIndex) &&
+                                                                                            (getJsonField(
+                                                                                                  FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                                  r'''$.userAnswer.userAnswer''',
+                                                                                                ) !=
+                                                                                                queNumbersIndex)
+                                                                                        ? Color(0xFF5E5E5E)
+                                                                                        : (getJsonField(
+                                                                                                  FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                                  r'''$.userAnswer.userAnswer''',
+                                                                                                ) ==
+                                                                                                queNumbersIndex
+                                                                                            ? Color(0xFFFF2424)
+                                                                                            : Color(0xFF5EB85E))))
+                                                                                : Color(0xFF00629F),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(25.0),
                                                                           ),
-                                                                          Text(
-                                                                            '( n % )',
-                                                                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                                  fontFamily: 'Poppins',
-                                                                                  color: Colors.white,
-                                                                                  fontWeight: FontWeight.w500,
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                queNumbersItem.toString(),
+                                                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                      fontFamily: 'Poppins',
+                                                                                      color: Colors.white,
+                                                                                      fontWeight: FontWeight.w500,
+                                                                                    ),
+                                                                              ),
+                                                                              if (getJsonField(
+                                                                                    FFAppState().allQuestionsStatus[quetionListIndex],
+                                                                                    r'''$.userAnswer''',
+                                                                                  ) !=
+                                                                                  null)
+                                                                                Text(
+                                                                                  ' ( ${queNumbersIndex == 0 ? getJsonField(
+                                                                                      quetionListItem,
+                                                                                      r'''$.analytics.option1Percentage''',
+                                                                                    ).toString() : (queNumbersIndex == 1 ? getJsonField(
+                                                                                      quetionListItem,
+                                                                                      r'''$.analytics.option2Percentage''',
+                                                                                    ).toString() : (queNumbersIndex == 2 ? getJsonField(
+                                                                                      quetionListItem,
+                                                                                      r'''$.analytics.option3Percentage''',
+                                                                                    ).toString() : getJsonField(
+                                                                                      quetionListItem,
+                                                                                      r'''$.analytics.option4Percentage''',
+                                                                                    ).toString()))}% )',
+                                                                                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        color: Colors.white,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                      ),
                                                                                 ),
+                                                                            ],
                                                                           ),
-                                                                        ],
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   );
@@ -487,10 +669,10 @@ class _PracticeQuetionsPageWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 200,
+                      height: 200.0,
                       child: custom_widgets.CustomLoader(
                         width: double.infinity,
-                        height: 200,
+                        height: 200.0,
                       ),
                     ),
                   ),

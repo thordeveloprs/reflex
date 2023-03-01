@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +30,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
@@ -41,12 +41,12 @@ class _NavBarWidgetState extends State<NavBarWidget> {
 
     return Container(
       width: double.infinity,
-      height: 80,
+      height: 80.0,
       decoration: BoxDecoration(
         color: Color(0xFFD3E5F1),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,20 +72,22 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     children: [
                       if (FFAppState().homeVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.home,
                             color: Colors.black,
-                            size: 20,
+                            size: 20.0,
                           ),
                         ),
                       if (!FFAppState().homeVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.home_outlined,
                             color: Color(0xFF3D444D),
-                            size: 28,
+                            size: 28.0,
                           ),
                         ),
                     ],
@@ -122,20 +124,22 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     children: [
                       if (FFAppState().testVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.mode_edit,
                             color: Colors.black,
-                            size: 25,
+                            size: 25.0,
                           ),
                         ),
                       if (!FFAppState().testVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.edit_outlined,
                             color: Color(0xFF3D444D),
-                            size: 25,
+                            size: 25.0,
                           ),
                         ),
                     ],
@@ -172,20 +176,22 @@ class _NavBarWidgetState extends State<NavBarWidget> {
                     children: [
                       if (FFAppState().notesVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.book_sharp,
                             color: Colors.black,
-                            size: 25,
+                            size: 25.0,
                           ),
                         ),
                       if (!FFAppState().notesVisibility)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 5.0),
                           child: Icon(
                             Icons.book_outlined,
                             color: Color(0xFF3D444D),
-                            size: 25,
+                            size: 25.0,
                           ),
                         ),
                     ],

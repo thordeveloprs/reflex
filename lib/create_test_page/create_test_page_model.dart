@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +39,19 @@ class CreateTestPageModel extends FlutterFlowModel {
   bool is100Que = false;
 
   bool is200Que = false;
+
+  int numberOfQuestions = 50;
+
+  int bookMark = 1;
+
+  dynamic topicIds;
+
+  dynamic subjectIds;
+
+  ///  State fields for stateful widgets in this page.
+
+  // Stores action output result for [Backend Call - API (Create custom test as per selected parameters)] action in Container widget.
+  ApiCallResponse? apiResult96m;
 
   /// Initialization and disposal methods.
 

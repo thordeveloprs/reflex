@@ -1,7 +1,8 @@
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -26,10 +27,10 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
     super.initState();
     _model = createModel(context, () => OrderPageModel());
 
-    _model.textController1 = TextEditingController(text: 'Anujest Dhaiya');
-    _model.emailTextFieldController1 =
+    _model.textController1 ??= TextEditingController(text: 'Anujest Dhaiya');
+    _model.emailTextFieldController1 ??=
         TextEditingController(text: 'anujeshdahiya@gmail.com');
-    _model.emailTextFieldController2 = TextEditingController();
+    _model.emailTextFieldController2 ??= TextEditingController();
   }
 
   @override
@@ -52,13 +53,13 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: Colors.black,
-            size: 30,
+            size: 30.0,
           ),
           onPressed: () async {
             context.pop();
@@ -69,13 +70,13 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 22.0,
                 fontWeight: FontWeight.w500,
               ),
         ),
         actions: [],
         centerTitle: false,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -85,23 +86,24 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          height: 100,
+                          height: 100.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(35),
-                              topRight: Radius.circular(35),
+                              bottomLeft: Radius.circular(0.0),
+                              bottomRight: Radius.circular(0.0),
+                              topLeft: Radius.circular(35.0),
+                              topRight: Radius.circular(35.0),
                             ),
                           ),
                           child: Row(
@@ -109,29 +111,29 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   '${FFAppState().numberOfTimes} access',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 20.0, 0.0),
                                 child: Text(
                                   '₹ ${FFAppState().actualAmount.toString()}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                         decoration: TextDecoration.lineThrough,
                                       ),
@@ -142,18 +144,19 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 15),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 15.0),
                         child: Container(
                           width: double.infinity,
-                          height: 75,
+                          height: 75.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(35),
-                              bottomRight: Radius.circular(35),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(35.0),
+                              bottomRight: Radius.circular(35.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Row(
@@ -161,29 +164,29 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Total',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 20.0, 0.0),
                                 child: Text(
                                   '₹ ${FFAppState().discountAmount.toString()}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -196,17 +199,17 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        width: 240,
-                        height: 50,
+                        width: 240.0,
+                        height: 50.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFF2E60EE),
-                          borderRadius: BorderRadius.circular(35),
+                          color: Color(0xFF00629F),
+                          borderRadius: BorderRadius.circular(35.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -223,7 +226,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
-                                        fontSize: 18,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -231,7 +234,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                   Icons.arrow_right_alt,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBtnText,
-                                  size: 30,
+                                  size: 30.0,
                                 ),
                               ],
                             ),
@@ -242,7 +245,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 10, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -254,33 +257,34 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 18,
+                                      fontSize: 18.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 10.0, 0.0),
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 5.0, 0.0),
                                 child: Container(
                                   width: 325.4,
-                                  height: 200,
+                                  height: 200.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(35),
+                                    borderRadius: BorderRadius.circular(35.0),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 20, 20, 20),
+                                        20.0, 20.0, 20.0, 20.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -296,7 +300,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -308,7 +312,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   .bodyText1
                                                   .override(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     fontWeight: FontWeight.w500,
                                                     decoration: TextDecoration
                                                         .lineThrough,
@@ -328,7 +332,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -345,7 +349,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -362,7 +366,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -372,7 +376,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 15, 0, 0),
+                                                  0.0, 15.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -381,7 +385,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                               if (_model.is6MonthChecked)
                                                 Expanded(
                                                   child: Container(
-                                                    height: 45,
+                                                    height: 45.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -389,7 +393,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                               .lineColor,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              35),
+                                                              35.0),
                                                     ),
                                                     child: Row(
                                                       mainAxisSize:
@@ -408,7 +412,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                     'Poppins',
                                                                 color: Color(
                                                                     0xFF878790),
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -441,13 +445,13 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       });
                                                     },
                                                     child: Container(
-                                                      height: 45,
+                                                      height: 45.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFF2E60EE),
+                                                            Color(0xFF00629F),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(35),
+                                                                .circular(35.0),
                                                       ),
                                                       child: Row(
                                                         mainAxisSize:
@@ -467,7 +471,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -487,19 +492,19 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 5.0, 0.0),
                                 child: Container(
                                   width: 325.4,
-                                  height: 200,
+                                  height: 200.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(35),
+                                    borderRadius: BorderRadius.circular(35.0),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 20, 20, 20),
+                                        20.0, 20.0, 20.0, 20.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -515,7 +520,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -527,7 +532,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   .bodyText1
                                                   .override(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     fontWeight: FontWeight.w500,
                                                     decoration: TextDecoration
                                                         .lineThrough,
@@ -547,7 +552,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -564,7 +569,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -581,7 +586,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -591,7 +596,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 15, 0, 0),
+                                                  0.0, 15.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -600,7 +605,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                               if (_model.is1YearChecked)
                                                 Expanded(
                                                   child: Container(
-                                                    height: 45,
+                                                    height: 45.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -608,7 +613,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                               .lineColor,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              35),
+                                                              35.0),
                                                     ),
                                                     child: Row(
                                                       mainAxisSize:
@@ -627,7 +632,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                     'Poppins',
                                                                 color: Color(
                                                                     0xFF878790),
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -660,13 +665,13 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                       });
                                                     },
                                                     child: Container(
-                                                      height: 45,
+                                                      height: 45.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFF2E60EE),
+                                                            Color(0xFF00629F),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(35),
+                                                                .circular(35.0),
                                                       ),
                                                       child: Row(
                                                         mainAxisSize:
@@ -686,7 +691,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBtnText,
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -713,12 +719,14 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                         child: Container(
                           width: double.infinity,
                           height: 54.5,
@@ -726,10 +734,10 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(35),
-                              topRight: Radius.circular(35),
+                              bottomLeft: Radius.circular(0.0),
+                              bottomRight: Radius.circular(0.0),
+                              topLeft: Radius.circular(35.0),
+                              topRight: Radius.circular(35.0),
                             ),
                           ),
                           child: Row(
@@ -737,17 +745,16 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'What\'s include in this course ?',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 16,
+                                        color: Color(0xFFDE6161),
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -757,7 +764,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           height: 122.1,
@@ -765,15 +773,15 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(35),
-                              bottomRight: Radius.circular(35),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(35.0),
+                              bottomRight: Radius.circular(35.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 10.0, 10.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -792,7 +800,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                           context)
                                                       .primaryText,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -801,7 +809,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -809,7 +817,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -817,14 +825,14 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'in the course ',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -832,7 +840,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               )
                                             ],
@@ -840,7 +848,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -856,7 +864,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -864,7 +872,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -873,14 +881,14 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'and ',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -888,14 +896,14 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'in the course.',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               )
                                             ],
@@ -903,7 +911,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -913,24 +921,47 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 25, 0),
-                                        child: Text(
-                                          'Learn more',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color: Color(0xFF2E60EE),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                            0.0, 0.0, 25.0, 0.0),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'LearnMore',
+                                              queryParams: {
+                                                'value': serializeParam(
+                                                  '${FFAppState().numberOfTimes} access',
+                                                  ParamType.String,
+                                                ),
+                                                'is6MonthChecked':
+                                                    serializeParam(
+                                                  _model.is6MonthChecked,
+                                                  ParamType.bool,
+                                                ),
+                                                'is1YearChecked':
+                                                    serializeParam(
+                                                  _model.is1YearChecked,
+                                                  ParamType.bool,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Text(
+                                            'Learn more',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF00629F),
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -945,26 +976,28 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 20),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 20.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 310,
+                        height: 310.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(35),
+                          borderRadius: BorderRadius.circular(35.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -976,7 +1009,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -984,11 +1017,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                 ),
                               ),
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 10, 0, 0),
+                                    20.0, 10.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1004,7 +1037,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   .bodyText1
                                                   .override(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                           hintStyle:
@@ -1013,7 +1046,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1024,7 +1057,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1035,7 +1068,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1047,7 +1080,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1061,7 +1094,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                         validator: _model
@@ -1073,11 +1106,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                 ),
                               ),
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 10, 0, 0),
+                                    20.0, 10.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1094,7 +1127,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   .bodyText1
                                                   .override(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                           hintStyle:
@@ -1103,7 +1136,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1114,7 +1147,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1125,7 +1158,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1137,7 +1170,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1151,7 +1184,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                         validator: _model
@@ -1163,11 +1196,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                 ),
                               ),
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 10, 0, 0),
+                                    20.0, 10.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1184,7 +1217,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   .bodyText1
                                                   .override(
                                                     fontFamily: 'Poppins',
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                           hintStyle:
@@ -1193,7 +1226,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1204,7 +1237,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1215,7 +1248,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1227,7 +1260,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1241,7 +1274,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                         validator: _model

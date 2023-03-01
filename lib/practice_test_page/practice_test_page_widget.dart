@@ -1,8 +1,9 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/components/reset_pop_up_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -63,8 +64,8 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primaryColor,
               ),
@@ -89,15 +90,20 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                         child: InkWell(
                           onTap: () async {
-                            context.pop();
+                            setState(() {
+                              FFAppState().pageNumber = 0;
+                            });
+
+                            context.pushNamed('PracticePage');
                           },
                           child: Icon(
                             Icons.arrow_back,
                             color: Colors.black,
-                            size: 29,
+                            size: 29.0,
                           ),
                         ),
                       ),
@@ -113,21 +119,43 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                         style: FlutterFlowTheme.of(context).title2.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 18.0,
                             ),
                       ),
                     ],
                   ),
-                  Icon(
-                    Icons.more_vert,
-                    color: Colors.black,
-                    size: 29,
+                  InkWell(
+                    onTap: () async {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        barrierColor: Color(0x00FFFFFF),
+                        enableDrag: false,
+                        context: context,
+                        builder: (context) {
+                          return Padding(
+                            padding: MediaQuery.of(context).viewInsets,
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 1.0,
+                              child: ResetPopUpWidget(
+                                testId: widget.teatId,
+                              ),
+                            ),
+                          );
+                        },
+                      ).then((value) => setState(() {}));
+                    },
+                    child: Icon(
+                      Icons.more_vert,
+                      color: Colors.black,
+                      size: 29.0,
+                    ),
                   ),
                 ],
               ),
               actions: [],
               centerTitle: false,
-              elevation: 2,
+              elevation: 2.0,
             ),
             body: SafeArea(
               child: GestureDetector(
@@ -137,28 +165,29 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
                       child: Material(
                         color: Colors.transparent,
-                        elevation: 4,
+                        elevation: 4.0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(25.0),
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 80,
+                          height: 80.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(25.0),
                           ),
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 10, 15, 10),
+                                    20.0, 10.0, 15.0, 10.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -174,7 +203,7 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                           ),
                                     ),
                                     Text(
@@ -187,7 +216,7 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 15,
+                                            fontSize: 15.0,
                                             fontWeight: FontWeight.w300,
                                           ),
                                     ),
@@ -200,12 +229,13 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 30, 0, 5),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 0.0, 5.0),
                       child: Text(
                         'Sections',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
-                              fontSize: 14,
+                              fontSize: 14.0,
                               fontWeight: FontWeight.w300,
                             ),
                       ),
@@ -213,13 +243,13 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                     Expanded(
                       child: Container(
                         width: double.infinity,
-                        height: 100,
+                        height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0xFFEDEDED),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 0.0),
                           child: Builder(
                             builder: (context) {
                               final practiceTestSections = PracticeGroup
@@ -241,7 +271,7 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                           practiceTestSectionsIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 10),
+                                        0.0, 0.0, 0.0, 10.0),
                                     child: InkWell(
                                       onTap: () async {
                                         _model.offSet = await actions.getOffset(
@@ -294,21 +324,22 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                       },
                                       child: Material(
                                         color: Colors.transparent,
-                                        elevation: 4,
+                                        elevation: 4.0,
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(25),
+                                              BorderRadius.circular(25.0),
                                         ),
                                         child: Container(
-                                          width: 100,
-                                          height: 80,
+                                          width: 100.0,
+                                          height: 80.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(25),
+                                                BorderRadius.circular(25.0),
                                           ),
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -316,7 +347,8 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(20, 10, 15, 10),
+                                                    .fromSTEB(
+                                                        20.0, 10.0, 15.0, 10.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -342,7 +374,7 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                               ),
                                                     ),
                                                     Text(
@@ -357,7 +389,7 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             fontWeight:
                                                                 FontWeight.w300,
                                                           ),
@@ -367,11 +399,12 @@ class _PracticeTestPageWidgetState extends State<PracticeTestPageWidget> {
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 20, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 20.0, 0.0),
                                                 child: Icon(
                                                   Icons.arrow_right_alt,
                                                   color: Colors.black,
-                                                  size: 25,
+                                                  size: 25.0,
                                                 ),
                                               ),
                                             ],

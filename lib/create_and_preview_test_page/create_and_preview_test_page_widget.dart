@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/nav_bar_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/nav_bar_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -36,8 +36,8 @@ class _CreateAndPreviewTestPageWidgetState
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-400, 0),
-          end: Offset(0, 0),
+          begin: Offset(-400.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -48,8 +48,8 @@ class _CreateAndPreviewTestPageWidgetState
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-400, 0),
-          end: Offset(0, 0),
+          begin: Offset(-400.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -60,8 +60,8 @@ class _CreateAndPreviewTestPageWidgetState
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(400, 0),
-          end: Offset(0, 0),
+          begin: Offset(400.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -98,12 +98,14 @@ class _CreateAndPreviewTestPageWidgetState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: InkWell(
                           onTap: () async {
                             FFAppState().update(() {
@@ -111,15 +113,15 @@ class _CreateAndPreviewTestPageWidgetState
                             });
                           },
                           child: Container(
-                            width: 130,
-                            height: 35,
+                            width: 130.0,
+                            height: 35.0,
                             decoration: BoxDecoration(
                               color: FFAppState().isCreatedTest
                                   ? Color(0xFF001F24)
                                   : Color(0xFFA6A6A6),
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(25.0),
                             ),
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Create Your Test',
                               style: FlutterFlowTheme.of(context)
@@ -129,7 +131,7 @@ class _CreateAndPreviewTestPageWidgetState
                                     color: FFAppState().isCreatedTest
                                         ? Colors.white
                                         : Colors.black,
-                                    fontSize: 11,
+                                    fontSize: 11.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -137,7 +139,8 @@ class _CreateAndPreviewTestPageWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: InkWell(
                           onTap: () async {
                             FFAppState().update(() {
@@ -145,15 +148,15 @@ class _CreateAndPreviewTestPageWidgetState
                             });
                           },
                           child: Container(
-                            width: 130,
-                            height: 35,
+                            width: 130.0,
+                            height: 35.0,
                             decoration: BoxDecoration(
                               color: !FFAppState().isCreatedTest
                                   ? Color(0xFF001F24)
                                   : Color(0xFFA6A6A6),
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(25.0),
                             ),
-                            alignment: AlignmentDirectional(0, 0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Previous Tests',
                               style: FlutterFlowTheme.of(context)
@@ -163,7 +166,7 @@ class _CreateAndPreviewTestPageWidgetState
                                     color: !FFAppState().isCreatedTest
                                         ? Colors.white
                                         : Colors.black,
-                                    fontSize: 11,
+                                    fontSize: 11.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -175,12 +178,14 @@ class _CreateAndPreviewTestPageWidgetState
                 ),
                 if (FFAppState().isCreatedTest)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(15, 25, 0, 15),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 0.0, 15.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 10.0, 0.0),
                           child: InkWell(
                             onTap: () async {
                               context.pushNamed('CreateTestPage');
@@ -192,7 +197,7 @@ class _CreateAndPreviewTestPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF00629F),
-                                    fontSize: 14,
+                                    fontSize: 14.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -201,7 +206,7 @@ class _CreateAndPreviewTestPageWidgetState
                         Icon(
                           Icons.arrow_right_alt,
                           color: Colors.black,
-                          size: 20,
+                          size: 20.0,
                         ),
                       ],
                     ).animateOnPageLoad(
@@ -211,12 +216,13 @@ class _CreateAndPreviewTestPageWidgetState
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: Color(0xFFEDEDED),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 10, 15, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 10.0, 15.0, 0.0),
                         child: PagedListView<ApiPagingParams, dynamic>(
                           pagingController: () {
                             if (_model.pagingController != null) {
@@ -235,7 +241,7 @@ class _CreateAndPreviewTestPageWidgetState
                               TestGroup
                                   .listOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall
                                   .call(
-                                authToken: FFAppState().accessToken,
+                                authToken: FFAppState().subjectToken,
                                 first: 10,
                                 offset: nextPageMarker.nextPageNumber,
                               )
@@ -272,8 +278,8 @@ class _CreateAndPreviewTestPageWidgetState
                             // Customize what your widget looks like when it's loading the first page.
                             firstPageProgressIndicatorBuilder: (_) => Center(
                               child: SizedBox(
-                                width: 50,
-                                height: 50,
+                                width: 50.0,
+                                height: 50.0,
                                 child: CircularProgressIndicator(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
@@ -286,26 +292,26 @@ class _CreateAndPreviewTestPageWidgetState
                                   .pagingController!
                                   .itemList![customTestListIndex];
                               return Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
                                 child: Material(
                                   color: Colors.transparent,
-                                  elevation: 4,
+                                  elevation: 4.0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25),
+                                    borderRadius: BorderRadius.circular(25.0),
                                   ),
                                   child: Container(
-                                    width: 100,
-                                    height: 120,
+                                    width: 100.0,
+                                    height: 120.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(25),
+                                      borderRadius: BorderRadius.circular(25.0),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 15, 15, 10),
+                                          15.0, 15.0, 15.0, 10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -322,7 +328,7 @@ class _CreateAndPreviewTestPageWidgetState
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 14,
+                                                  fontSize: 14.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -335,7 +341,7 @@ class _CreateAndPreviewTestPageWidgetState
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -348,34 +354,97 @@ class _CreateAndPreviewTestPageWidgetState
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
-                                                  lineHeight: 1,
+                                                  lineHeight: 1.0,
                                                 ),
                                           ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
+                                                    0.0, 5.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                Text(
-                                                  'View Result',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF3474A1),
-                                                        fontSize: 13,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
+                                                if (getJsonField(
+                                                      customTestListItem,
+                                                      r'''$.completedAttempt''',
+                                                    ) !=
+                                                    null)
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      setState(() {
+                                                        FFAppState()
+                                                                .testAttemptId =
+                                                            getJsonField(
+                                                          customTestListItem,
+                                                          r'''$.completedAttempt.id''',
+                                                        ).toString();
+                                                      });
+
+                                                      context.pushNamed(
+                                                        'CreateTestResultPage',
+                                                        queryParams: {
+                                                          'customTestJson':
+                                                              serializeParam(
+                                                            customTestListItem,
+                                                            ParamType.JSON,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      'View Result',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF3474A1),
+                                                            fontSize: 13.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                if (getJsonField(
+                                                      customTestListItem,
+                                                      r'''$.completedAttempt''',
+                                                    ) ==
+                                                    null)
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'StartTestPage',
+                                                        queryParams: {
+                                                          'customTestJson':
+                                                              serializeParam(
+                                                            customTestListItem,
+                                                            ParamType.JSON,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      'Start Test',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF3474A1),
+                                                            fontSize: 13.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
                                               ],
                                             ),
                                           ),
@@ -395,17 +464,20 @@ class _CreateAndPreviewTestPageWidgetState
                 if (!FFAppState().isCreatedTest)
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: FutureBuilder<ApiCallResponse>(
                         future:
-                            TestGroup.getPreviousYearTestsInTestsTabCall.call(),
+                            TestGroup.getPreviousYearTestsInTestsTabCall.call(
+                          authToken: FFAppState().subjectToken,
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50,
-                                height: 50,
+                                width: 50.0,
+                                height: 50.0,
                                 child: CircularProgressIndicator(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
@@ -417,13 +489,13 @@ class _CreateAndPreviewTestPageWidgetState
                               snapshot.data!;
                           return Container(
                             width: double.infinity,
-                            height: 100,
+                            height: 100.0,
                             decoration: BoxDecoration(
                               color: Color(0xFFEDEDED),
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(15, 10, 15, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 10.0, 15.0, 0.0),
                               child: Builder(
                                 builder: (context) {
                                   final previousTestList = TestGroup
@@ -445,29 +517,30 @@ class _CreateAndPreviewTestPageWidgetState
                                               previousTestListIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 10),
+                                            0.0, 0.0, 0.0, 10.0),
                                         child: Material(
                                           color: Colors.transparent,
-                                          elevation: 4,
+                                          elevation: 4.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(25),
+                                                BorderRadius.circular(25.0),
                                           ),
                                           child: Container(
-                                            width: 100,
-                                            height: 120,
+                                            width: 100.0,
+                                            height: 120.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               borderRadius:
-                                                  BorderRadius.circular(25),
+                                                  BorderRadius.circular(25.0),
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(15, 15, 15, 10),
+                                                  .fromSTEB(
+                                                      15.0, 15.0, 15.0, 10.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -485,7 +558,7 @@ class _CreateAndPreviewTestPageWidgetState
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -500,7 +573,7 @@ class _CreateAndPreviewTestPageWidgetState
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -508,30 +581,88 @@ class _CreateAndPreviewTestPageWidgetState
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 5, 0, 0),
+                                                            .fromSTEB(0.0, 5.0,
+                                                                0.0, 0.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        Text(
-                                                          'View Result',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0xFF3474A1),
-                                                                fontSize: 13,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
+                                                        if (getJsonField(
+                                                              previousTestListItem,
+                                                              r'''$.completedAttempt''',
+                                                            ) !=
+                                                            null)
+                                                          InkWell(
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'PreviousTestResultPage',
+                                                                queryParams: {
+                                                                  'customTestJson':
+                                                                      serializeParam(
+                                                                    previousTestListItem,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              'View Result',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF3474A1),
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        if (getJsonField(
+                                                              previousTestListItem,
+                                                              r'''$.completedAttempt''',
+                                                            ) ==
+                                                            null)
+                                                          InkWell(
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                'PreviousTestStartPage',
+                                                                queryParams: {
+                                                                  'customTestJson':
+                                                                      serializeParam(
+                                                                    previousTestListItem,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: Text(
+                                                              'Start Test',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF3474A1),
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                          ),
                                                       ],
                                                     ),
                                                   ),

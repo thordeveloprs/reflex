@@ -67,15 +67,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? PracticePageWidget() : LoginPageWidget(),
+      errorBuilder: (context, _) => appStateNotifier.loggedIn
+          ? PracticeTestPageWidget()
+          : PracticePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PracticePageWidget()
-              : LoginPageWidget(),
+              ? PracticeTestPageWidget()
+              : PracticePageWidget(),
           routes: [
             FFRoute(
               name: 'LoginPage',
@@ -116,14 +117,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAndPreviewTestPageWidget(),
             ),
             FFRoute(
+              name: 'CreateTestResultPage',
+              path: 'createTestResultPage',
+              builder: (context, params) => CreateTestResultPageWidget(
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+              ),
+            ),
+            FFRoute(
               name: 'CreateTestPage',
               path: 'createTestPage',
               builder: (context, params) => CreateTestPageWidget(),
-            ),
-            FFRoute(
-              name: 'CreateTestResultPage',
-              path: 'createTestResultPage',
-              builder: (context, params) => CreateTestResultPageWidget(),
             ),
             FFRoute(
               name: 'TestList',
@@ -133,19 +137,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'OrderPage',
+              path: 'orderPage',
+              builder: (context, params) => OrderPageWidget(),
+            ),
+            FFRoute(
               name: 'StartTestPage',
               path: 'startTestPage',
-              builder: (context, params) => StartTestPageWidget(),
+              builder: (context, params) => StartTestPageWidget(
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+              ),
             ),
             FFRoute(
               name: 'testingNew',
               path: 'testingNew',
               builder: (context, params) => TestingNewWidget(),
-            ),
-            FFRoute(
-              name: 'OrderPage',
-              path: 'orderPage',
-              builder: (context, params) => OrderPageWidget(),
             ),
             FFRoute(
               name: 'LearnMore',
@@ -156,6 +163,83 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     params.getParam('is6MonthChecked', ParamType.bool),
                 is1YearChecked:
                     params.getParam('is1YearChecked', ParamType.bool),
+              ),
+            ),
+            FFRoute(
+              name: 'ReportQuestionPage',
+              path: 'reportQuestionPage',
+              builder: (context, params) => ReportQuestionPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                questionId: params.getParam('questionId', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'ReportQuestionSubmitPage',
+              path: 'reportQuestionSubmitPage',
+              builder: (context, params) => ReportQuestionSubmitPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                questionId: params.getParam('questionId', ParamType.String),
+                typeId: params.getParam('typeId', ParamType.String),
+                issueType: params.getParam('issueType', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'TestPage',
+              path: 'testPage',
+              builder: (context, params) => TestPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+                min: params.getParam('min', ParamType.int),
+                sec: params.getParam('sec', ParamType.int),
+              ),
+            ),
+            FFRoute(
+              name: 'ViewAnswerPage',
+              path: 'viewAnswerPage',
+              builder: (context, params) => ViewAnswerPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+              ),
+            ),
+            FFRoute(
+              name: 'PreviousTestResultPage',
+              path: 'previousTestResultPage',
+              builder: (context, params) => PreviousTestResultPageWidget(
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+              ),
+            ),
+            FFRoute(
+              name: 'PreviousTestStartPage',
+              path: 'previousTestStartPage',
+              builder: (context, params) => PreviousTestStartPageWidget(
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+              ),
+            ),
+            FFRoute(
+              name: 'previousTestPage',
+              path: 'previousTestPage',
+              builder: (context, params) => PreviousTestPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+                min: params.getParam('min', ParamType.int),
+                sec: params.getParam('sec', ParamType.int),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -319,7 +403,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/loginPage';
+            return '/practicePage';
           }
           return null;
         },
@@ -334,8 +418,8 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 50.0,
+                    height: 50.0,
                     child: CircularProgressIndicator(
                       color: FlutterFlowTheme.of(context).primaryColor,
                     ),

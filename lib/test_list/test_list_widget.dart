@@ -1,6 +1,6 @@
-import '../flutter_flow/flutter_flow_pdf_viewer.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +55,7 @@ class _TestListWidgetState extends State<TestListWidget> {
               Expanded(
                 child: FlutterFlowPdfViewer(
                   networkPath: widget.pdfLink!,
-                  height: 300,
+                  height: 300.0,
                   horizontalScroll: false,
                 ),
               ),

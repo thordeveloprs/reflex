@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +56,8 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                     child: InkWell(
                       onTap: () async {
                         context.pop();
@@ -64,7 +65,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                       child: Icon(
                         Icons.arrow_back,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                   ),
@@ -73,7 +74,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                     style: FlutterFlowTheme.of(context).title2.override(
                           fontFamily: 'Poppins',
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -83,7 +84,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
           ),
           actions: [],
           centerTitle: false,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           child: GestureDetector(
@@ -95,32 +96,33 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    height: 100,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: Color(0xFFEDEDED),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 10.0, 10.0, 10.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
                               child: Material(
                                 color: Colors.transparent,
-                                elevation: 4,
+                                elevation: 4.0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -130,7 +132,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 15, 0, 0),
+                                            15.0, 15.0, 0.0, 0.0),
                                         child: Text(
                                           'Test Type',
                                           style: FlutterFlowTheme.of(context)
@@ -138,17 +140,17 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF858585),
-                                                fontSize: 13,
+                                                fontSize: 13.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
                                       Divider(
-                                        thickness: 1,
+                                        thickness: 1.0,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 10, 15, 10),
+                                            15.0, 10.0, 15.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -164,7 +166,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -182,19 +184,24 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                             false;
                                                         _model.isCustomTest =
                                                             false;
+                                                        _model.numberOfQuestions =
+                                                            50;
+                                                        _model.topicName = [];
+                                                        _model.subTopicName =
+                                                            [];
                                                       });
                                                     },
                                                     child: Icon(
                                                       Icons.radio_button_off,
                                                       color: Colors.black,
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 if (_model.isMiniTest)
                                                   Icon(
                                                     Icons.radio_button_checked,
                                                     color: Color(0xFF3474A1),
-                                                    size: 20,
+                                                    size: 20.0,
                                                   ),
                                               ],
                                             ),
@@ -203,7 +210,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 0),
+                                            15.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           '50 quetions, 60 minutes, from all the subjects',
                                           style: FlutterFlowTheme.of(context)
@@ -211,14 +218,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFAAAAAA),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 10, 15, 10),
+                                            15.0, 10.0, 15.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -234,7 +241,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -252,19 +259,24 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                             true;
                                                         _model.isCustomTest =
                                                             false;
+                                                        _model.numberOfQuestions =
+                                                            200;
+                                                        _model.topicName = [];
+                                                        _model.subTopicName =
+                                                            [];
                                                       });
                                                     },
                                                     child: Icon(
                                                       Icons.radio_button_off,
                                                       color: Colors.black,
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 if (_model.isGrandTest)
                                                   Icon(
                                                     Icons.radio_button_checked,
                                                     color: Color(0xFF3474A1),
-                                                    size: 20,
+                                                    size: 20.0,
                                                   ),
                                               ],
                                             ),
@@ -273,7 +285,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 0),
+                                            15.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           '200 quetions, 210 minutes, from all the subjects',
                                           style: FlutterFlowTheme.of(context)
@@ -281,14 +293,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFAAAAAA),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 10, 15, 10),
+                                            15.0, 10.0, 15.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -304,7 +316,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -327,14 +339,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                     child: Icon(
                                                       Icons.radio_button_off,
                                                       color: Colors.black,
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 if (_model.isCustomTest)
                                                   Icon(
                                                     Icons.radio_button_checked,
                                                     color: Color(0xFF3474A1),
-                                                    size: 20,
+                                                    size: 20.0,
                                                   ),
                                               ],
                                             ),
@@ -343,7 +355,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 15),
+                                            15.0, 0.0, 0.0, 15.0),
                                         child: Text(
                                           '10, 20, 50, 100 or 200 quetions from choosen subjects',
                                           style: FlutterFlowTheme.of(context)
@@ -351,7 +363,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFAAAAAA),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -362,20 +374,20 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
                               child: Material(
                                 color: Colors.transparent,
-                                elevation: 4,
+                                elevation: 4.0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -385,7 +397,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 15, 0, 0),
+                                            15.0, 15.0, 0.0, 0.0),
                                         child: Text(
                                           'Bookmarked Quetions',
                                           style: FlutterFlowTheme.of(context)
@@ -393,17 +405,17 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF858585),
-                                                fontSize: 13,
+                                                fontSize: 13.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                       ),
                                       Divider(
-                                        thickness: 1,
+                                        thickness: 1.0,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 10, 15, 10),
+                                            15.0, 10.0, 15.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -419,7 +431,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
-                                                        fontSize: 14,
+                                                        fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -433,13 +445,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       setState(() {
                                                         _model.isBookMarked =
                                                             true;
+                                                        _model.bookMark = 1;
                                                       });
                                                     },
                                                     child: Icon(
                                                       Icons
                                                           .check_box_outline_blank_outlined,
                                                       color: Colors.black,
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                                 if (_model.isBookMarked)
@@ -448,12 +461,13 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       setState(() {
                                                         _model.isBookMarked =
                                                             false;
+                                                        _model.bookMark = 0;
                                                       });
                                                     },
                                                     child: Icon(
                                                       Icons.check_box,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                   ),
                                               ],
@@ -463,7 +477,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 0, 0, 15),
+                                            15.0, 0.0, 0.0, 15.0),
                                         child: Text(
                                           '50 quetions, 60 minutes, from all the subjects',
                                           style: FlutterFlowTheme.of(context)
@@ -471,7 +485,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFAAAAAA),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -483,20 +497,20 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                             ),
                             if (_model.isCustomTest)
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
                                 child: Material(
                                   color: Colors.transparent,
-                                  elevation: 4,
+                                  elevation: 4.0,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -508,7 +522,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 15, 0, 0),
+                                                  15.0, 15.0, 0.0, 0.0),
                                           child: Text(
                                             'Number of Questions',
                                             style: FlutterFlowTheme.of(context)
@@ -516,18 +530,18 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF858585),
-                                                  fontSize: 13,
+                                                  fontSize: 13.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
                                         ),
                                         Divider(
-                                          thickness: 1,
+                                          thickness: 1.0,
                                         ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 15, 10),
+                                                  15.0, 5.0, 15.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -543,7 +557,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -564,12 +578,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               false;
                                                           _model.is200Que =
                                                               false;
+                                                          _model.numberOfQuestions =
+                                                              10;
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons.radio_button_off,
                                                         color: Colors.black,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   if (_model.is10Que)
@@ -577,7 +593,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       Icons
                                                           .radio_button_checked,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                 ],
                                               ),
@@ -587,7 +603,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 15, 10),
+                                                  15.0, 5.0, 15.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -603,7 +619,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -624,12 +640,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               false;
                                                           _model.is200Que =
                                                               false;
+                                                          _model.numberOfQuestions =
+                                                              20;
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons.radio_button_off,
                                                         color: Colors.black,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   if (_model.is20Que)
@@ -637,7 +655,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       Icons
                                                           .radio_button_checked,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                 ],
                                               ),
@@ -647,7 +665,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 15, 10),
+                                                  15.0, 5.0, 15.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -663,7 +681,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -684,12 +702,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               false;
                                                           _model.is200Que =
                                                               false;
+                                                          _model.numberOfQuestions =
+                                                              50;
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons.radio_button_off,
                                                         color: Colors.black,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   if (_model.is50Que)
@@ -697,7 +717,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       Icons
                                                           .radio_button_checked,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                 ],
                                               ),
@@ -707,7 +727,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 15, 10),
+                                                  15.0, 5.0, 15.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -723,7 +743,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -745,12 +765,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               true;
                                                           _model.is200Que =
                                                               false;
+                                                          _model.numberOfQuestions =
+                                                              100;
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons.radio_button_off,
                                                         color: Colors.black,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   if (_model.is100Que)
@@ -758,7 +780,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       Icons
                                                           .radio_button_checked,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                 ],
                                               ),
@@ -768,7 +790,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 15, 20),
+                                                  15.0, 5.0, 15.0, 20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -784,7 +806,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -806,12 +828,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               false;
                                                           _model.is200Que =
                                                               true;
+                                                          _model.numberOfQuestions =
+                                                              200;
                                                         });
                                                       },
                                                       child: Icon(
                                                         Icons.radio_button_off,
                                                         color: Colors.black,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   if (_model.is200Que)
@@ -819,7 +843,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                       Icons
                                                           .radio_button_checked,
                                                       color: Color(0xFF3474A1),
-                                                      size: 20,
+                                                      size: 20.0,
                                                     ),
                                                 ],
                                               ),
@@ -833,8 +857,8 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                               ),
                             if (_model.isCustomTest)
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 0.0),
                                 child: Text(
                                   'Choose subject',
                                   style: FlutterFlowTheme.of(context)
@@ -842,14 +866,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF858585),
-                                        fontSize: 13,
+                                        fontSize: 13.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
                             if (_model.isCustomTest)
                               Divider(
-                                thickness: 1,
+                                thickness: 1.0,
                               ),
                             if (_model.isCustomTest)
                               FutureBuilder<ApiCallResponse>(
@@ -861,8 +885,8 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
@@ -894,14 +918,15 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                   topicList[topicListIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 5),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 5.0),
                                                 child: Material(
                                                   color: Colors.transparent,
-                                                  elevation: 4,
+                                                  elevation: 4.0,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            25),
+                                                            25.0),
                                                   ),
                                                   child: Container(
                                                     width: double.infinity,
@@ -911,13 +936,16 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                           .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              25),
+                                                              25.0),
                                                     ),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10, 0, 15, 0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  15.0,
+                                                                  0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -926,10 +954,10 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        18,
-                                                                        0,
-                                                                        18),
+                                                                        0.0,
+                                                                        18.0,
+                                                                        0.0,
+                                                                        18.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -970,14 +998,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                         .contains(
                                                                             getJsonField(
                                                                       topicListItem,
-                                                                      r'''$.name''',
+                                                                      r'''$.id''',
                                                                     )))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            20,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0),
                                                                         child:
                                                                             InkWell(
                                                                           onTap:
@@ -985,7 +1013,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                             setState(() {
                                                                               _model.addToTopicName(getJsonField(
                                                                                 topicListItem,
-                                                                                r'''$.name''',
+                                                                                r'''$.id''',
                                                                               ).toString());
                                                                               _model.subTopicName = functions
                                                                                   .getUpdatedList(
@@ -1004,7 +1032,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                             color:
                                                                                 Colors.black,
                                                                             size:
-                                                                                20,
+                                                                                20.0,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1013,14 +1041,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                         .contains(
                                                                             getJsonField(
                                                                       topicListItem,
-                                                                      r'''$.name''',
+                                                                      r'''$.id''',
                                                                     )))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            20,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0),
                                                                         child:
                                                                             InkWell(
                                                                           onTap:
@@ -1028,7 +1056,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                             setState(() {
                                                                               _model.removeFromTopicName(getJsonField(
                                                                                 topicListItem,
-                                                                                r'''$.name''',
+                                                                                r'''$.id''',
                                                                               ).toString());
                                                                               _model.subTopicName = functions
                                                                                   .getUpdatedList(
@@ -1047,7 +1075,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                             color:
                                                                                 Color(0xFF3474A1),
                                                                             size:
-                                                                                20,
+                                                                                20.0,
                                                                           ),
                                                                         ),
                                                                       ),
@@ -1093,7 +1121,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                         color: Colors
                                                                             .black,
                                                                         size:
-                                                                            20,
+                                                                            20.0,
                                                                       ),
                                                                     ),
                                                                   ],
@@ -1108,10 +1136,10 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          10),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0),
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
@@ -1140,10 +1168,10 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                             subTopicList[subTopicListIndex];
                                                                         return Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5,
-                                                                              5,
-                                                                              5,
-                                                                              18),
+                                                                              5.0,
+                                                                              5.0,
+                                                                              5.0,
+                                                                              18.0),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -1202,7 +1230,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                                           setState(() {
                                                                                             _model.addToTopicName(getJsonField(
                                                                                               topicListItem,
-                                                                                              r'''$.name''',
+                                                                                              r'''$.id''',
                                                                                             ).toString());
                                                                                           });
                                                                                         }
@@ -1210,7 +1238,7 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                                       child: Icon(
                                                                                         Icons.check_box_outline_blank_outlined,
                                                                                         color: Colors.black,
-                                                                                        size: 20,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                   if (_model.subTopicName.contains(functions.getString(
@@ -1239,14 +1267,14 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                                                                                               .toList();
                                                                                           _model.removeFromTopicName(getJsonField(
                                                                                             topicListItem,
-                                                                                            r'''$.name''',
+                                                                                            r'''$.id''',
                                                                                           ).toString());
                                                                                         });
                                                                                       },
                                                                                       child: Icon(
                                                                                         Icons.check_box,
                                                                                         color: Color(0xFF3474A1),
-                                                                                        size: 20,
+                                                                                        size: 20.0,
                                                                                       ),
                                                                                     ),
                                                                                 ],
@@ -1281,22 +1309,47 @@ class _CreateTestPageWidgetState extends State<CreateTestPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF00629F),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Text(
-                      'Create Test',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                  child: InkWell(
+                    onTap: () async {
+                      setState(() {
+                        FFAppState().subIds = functions.getJsonForIdsOfList(
+                            _model.topicName.toList(), 'subjectId');
+                        FFAppState().topicIds = functions.getJsonForIdsOfList(
+                            _model.subTopicName.toList(), 'topicId');
+                      });
+                      _model.apiResult96m = await TestGroup
+                          .createCustomTestAsPerSelectedParametersCall
+                          .call(
+                        numQuestions: _model.numberOfQuestions,
+                        topicIdsJson: FFAppState().topicIds,
+                        subjectIdsJson: FFAppState().subIds,
+                        includeBookmarks: _model.bookMark,
+                        authToken: FFAppState().subjectToken,
+                      );
+                      if ((_model.apiResult96m?.succeeded ?? true)) {
+                        context.pushNamed('CreateAndPreviewTestPage');
+                      }
+
+                      setState(() {});
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF00629F),
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        'Create Test',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
                     ),
                   ),
                 ),

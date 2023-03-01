@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/nav_bar_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
+import '/backend/api_requests/api_calls.dart';
+import '/components/nav_bar_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -51,8 +51,8 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primaryColor,
               ),
@@ -78,14 +78,14 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                   style: FlutterFlowTheme.of(context).title2.override(
                         fontFamily: 'Poppins',
                         color: Colors.black,
-                        fontSize: 22,
+                        fontSize: 22.0,
                         fontWeight: FontWeight.w500,
                       ),
                 ),
               ),
               actions: [],
               centerTitle: false,
-              elevation: 2,
+              elevation: 2.0,
             ),
             body: SafeArea(
               child: GestureDetector(
@@ -96,13 +96,13 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                     Expanded(
                       child: Container(
                         width: double.infinity,
-                        height: 100,
+                        height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0xFFEDEDED),
                         ),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 0.0),
                           child: Builder(
                             builder: (context) {
                               final notesList = getJsonField(
@@ -119,27 +119,29 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                                       notesList[notesListIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 10),
+                                        0.0, 0.0, 0.0, 10.0),
                                     child: Material(
                                       color: Colors.transparent,
-                                      elevation: 4,
+                                      elevation: 4.0,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(25),
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
                                       ),
                                       child: Container(
-                                        width: 100,
-                                        height: 110,
+                                        width: 100.0,
+                                        height: 110.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(25),
+                                              BorderRadius.circular(25.0),
                                         ),
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  15, 10, 15, 10),
+                                                  15.0, 10.0, 15.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -160,7 +162,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 14,
+                                                          fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -191,7 +193,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                                                     child: Icon(
                                                       Icons.book_outlined,
                                                       color: Colors.black,
-                                                      size: 24,
+                                                      size: 24.0,
                                                     ),
                                                   ),
                                                 ],
@@ -210,7 +212,7 @@ class _NotesPageWidgetState extends State<NotesPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF3474A1),
-                                                          fontSize: 13,
+                                                          fontSize: 13.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),

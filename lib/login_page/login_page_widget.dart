@@ -1,7 +1,8 @@
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
+import '/auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,15 +54,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         color: Color(0x00FFFFFF),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,20 +75,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 25,
+                                    fontSize: 25.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 18, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 18.0, 0.0, 0.0),
                               child: Text(
                                 'Reflex app guide your PG preparationn by focusing your attention on the most relevant previous year questions (PYQs). PYQs are crucial to understand the types of MCQs expected as well important topics to cover.',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 12,
+                                      fontSize: 12.0,
                                       fontWeight: FontWeight.normal,
                                       lineHeight: 1.7,
                                     ),
@@ -98,23 +101,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       _model.userJson = await actions.gmailLogin(
                         context,
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            _model.userJson!.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Colors.black,
-                        ),
                       );
                       FFAppState().update(() {
                         FFAppState().jwtToken = getJsonField(
@@ -134,6 +125,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           r'''$.profile''',
                         );
                       });
+                      _model.userAccessInfo = await SignupGroup
+                          .googleLoginServerCallWithCodeReceivedFromGoogleAuthenticationCall
+                          .call(
+                        email: FFAppState().mockEmail,
+                        name: FFAppState().mockUserName,
+                        picture: FFAppState().mockProfilePic,
+                      );
+                      setState(() {
+                        FFAppState().userIdInt = getJsonField(
+                          (_model.userAccessInfo?.jsonBody ?? ''),
+                          r'''$.id''',
+                        );
+                        FFAppState().subjectToken = getJsonField(
+                          (_model.userAccessInfo?.jsonBody ?? ''),
+                          r'''$.token''',
+                        ).toString();
+                      });
 
                       setState(() {});
                     },
@@ -141,20 +149,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(28),
+                        borderRadius: BorderRadius.circular(28.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(15, 5, 15, 5),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 5.0, 15.0, 5.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
                               child: SvgPicture.asset(
                                 'assets/images/google-icon.svg',
-                                width: 20,
-                                height: 40,
+                                width: 20.0,
+                                height: 40.0,
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -164,7 +173,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -175,10 +184,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 18, 20, 25),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(20.0, 18.0, 20.0, 25.0),
                   child: Wrap(
-                    spacing: 0,
-                    runSpacing: 0,
+                    spacing: 0.0,
+                    runSpacing: 0.0,
                     alignment: WrapAlignment.start,
                     crossAxisAlignment: WrapCrossAlignment.start,
                     direction: Axis.horizontal,
@@ -191,7 +201,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -200,7 +210,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -209,7 +219,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -218,7 +228,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -235,7 +245,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -244,7 +254,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -253,7 +263,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -262,7 +272,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -271,7 +281,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -285,7 +295,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF457392),
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -301,7 +311,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF457392),
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -312,7 +322,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -321,7 +331,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Colors.black,
-                              fontSize: 12,
+                              fontSize: 12.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),
@@ -335,7 +345,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF457392),
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -351,7 +361,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF457392),
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -367,7 +377,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF457392),
-                                    fontSize: 12,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -385,7 +395,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         return;
                       }
 
-                      context.goNamedAuth('PracticePage', mounted);
+                      context.goNamedAuth('PracticeTestPage', mounted);
                     },
                     child: Text(
                       'Hello World',

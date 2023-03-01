@@ -1,10 +1,11 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/bubble_questions_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../custom_code/widgets/index.dart' as custom_widgets;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/components/bubble_questions_widget.dart';
+import '/components/report_aproblem_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -30,6 +31,12 @@ class PracticeQuetionsPageModel extends FlutterFlowModel {
   List<dynamic>? newStatusList;
   // State field(s) for PageView widget.
   PageController? pageViewController;
+  // Stores action output result for [Backend Call - API (Create or delete bookmark for a practice question by a user)] action in Icon widget.
+  ApiCallResponse? apiResultdn0;
+  // Stores action output result for [Backend Call - API (Create or delete bookmark for a practice question by a user)] action in Icon widget.
+  ApiCallResponse? apiResultdn1;
+  // Stores action output result for [Backend Call - API (Create answer for a practice question by a user with specific marked option )] action in Container widget.
+  ApiCallResponse? apiResultixv;
 
   /// Initialization and disposal methods.
 

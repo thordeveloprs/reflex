@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/nav_bar_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/nav_bar_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -24,7 +24,9 @@ class CreateAndPreviewTestPageModel extends FlutterFlowModel {
     navBarModel = createModel(context, () => NavBarModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    navBarModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

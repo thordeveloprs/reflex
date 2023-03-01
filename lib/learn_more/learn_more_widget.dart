@@ -1,7 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -57,13 +58,13 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: Colors.black,
-            size: 30,
+            size: 30.0,
           ),
           onPressed: () async {
             context.pop();
@@ -74,13 +75,13 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 22.0,
                 fontWeight: FontWeight.w500,
               ),
         ),
         actions: [],
         centerTitle: false,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -90,12 +91,14 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
                         child: Container(
                           width: double.infinity,
                           height: 54.5,
@@ -103,10 +106,10 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(35),
-                              topRight: Radius.circular(35),
+                              bottomLeft: Radius.circular(0.0),
+                              bottomRight: Radius.circular(0.0),
+                              topLeft: Radius.circular(35.0),
+                              topRight: Radius.circular(35.0),
                             ),
                           ),
                           child: Row(
@@ -114,8 +117,8 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(30, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Description',
                                   style: FlutterFlowTheme.of(context)
@@ -124,7 +127,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -134,23 +137,24 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          height: 100,
+                          height: 100.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(35),
-                              bottomRight: Radius.circular(35),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(0),
+                              bottomLeft: Radius.circular(35.0),
+                              bottomRight: Radius.circular(35.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
                             ),
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 10.0, 10.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -169,7 +173,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                           context)
                                                       .primaryText,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -178,7 +182,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -186,7 +190,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -194,14 +198,14 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'in the course ',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -209,7 +213,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               )
                                             ],
@@ -217,7 +221,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -233,7 +237,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -241,7 +245,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.normal,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -250,14 +254,14 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'and ',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
@@ -265,14 +269,14 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                               TextSpan(
                                                 text: 'in the course.',
                                                 style: TextStyle(
                                                   color: Colors.black,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                 ),
                                               )
                                             ],
@@ -280,7 +284,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -297,12 +301,14 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -312,7 +318,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
@@ -320,10 +326,11 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: FutureBuilder<ApiCallResponse>(
                           future: PracticeGroup
                               .getPracticeTestsToShowSubjectsInThePracticeTabCall
@@ -333,8 +340,8 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.0,
+                                  height: 50.0,
                                   child: CircularProgressIndicator(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
@@ -362,20 +369,20 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                         topicName[topicNameIndex];
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 3, 0, 3),
+                                          0.0, 3.0, 0.0, 3.0),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 60,
+                                        height: 60.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           borderRadius:
-                                              BorderRadius.circular(35),
+                                              BorderRadius.circular(35.0),
                                         ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  20, 0, 0, 0),
+                                                  20.0, 0.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -389,7 +396,7 @@ class _LearnMoreWidgetState extends State<LearnMoreWidget> {
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),

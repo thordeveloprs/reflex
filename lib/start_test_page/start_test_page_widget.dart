@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +7,12 @@ import 'start_test_page_model.dart';
 export 'start_test_page_model.dart';
 
 class StartTestPageWidget extends StatefulWidget {
-  const StartTestPageWidget({Key? key}) : super(key: key);
+  const StartTestPageWidget({
+    Key? key,
+    this.customTestJson,
+  }) : super(key: key);
+
+  final dynamic customTestJson;
 
   @override
   _StartTestPageWidgetState createState() => _StartTestPageWidgetState();
@@ -53,7 +58,8 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                     child: InkWell(
                       onTap: () async {
                         context.pop();
@@ -61,16 +67,19 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                       child: Icon(
                         Icons.arrow_back,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                   ),
                   Text(
-                    'Custom Test - 01 Feb',
+                    getJsonField(
+                      widget.customTestJson,
+                      r'''$.name''',
+                    ).toString(),
                     style: FlutterFlowTheme.of(context).title2.override(
                           fontFamily: 'Poppins',
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -80,7 +89,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
           ),
           actions: [],
           centerTitle: false,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           child: GestureDetector(
@@ -92,32 +101,33 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    height: 100,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: Color(0xFFEDEDED),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 10),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 15.0, 10.0, 10.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Material(
                             color: Colors.transparent,
-                            elevation: 4,
+                            elevation: 4.0,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Container(
                               width: double.infinity,
-                              height: 90,
+                              height: 90.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -125,22 +135,25 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 15, 0, 0),
+                                          15.0, 15.0, 0.0, 0.0),
                                       child: Text(
-                                        'Custom Test - 01 Feb',
+                                        getJsonField(
+                                          widget.customTestJson,
+                                          r'''$.name''',
+                                        ).toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
-                                              fontSize: 14,
+                                              fontSize: 14.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 0, 0, 0),
+                                          15.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Live on: Feb 1, 2023, 1:03 PM',
                                         style: FlutterFlowTheme.of(context)
@@ -148,7 +161,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Color(0xFFDA888E),
-                                              fontSize: 12,
+                                              fontSize: 12.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -159,24 +172,24 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 8, 0, 10),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 10.0),
                             child: Material(
                               color: Colors.transparent,
-                              elevation: 4,
+                              elevation: 4.0,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 0, 0),
+                                      5.0, 0.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -185,13 +198,14 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 15, 0, 0),
+                                            15.0, 15.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 25, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 25.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -206,19 +220,22 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF858585),
-                                                          fontSize: 10,
+                                                          fontSize: 10.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                   ),
                                                   Text(
-                                                    '15 min',
+                                                    '${getJsonField(
+                                                      widget.customTestJson,
+                                                      r'''$.durationInMin''',
+                                                    ).toString()} min',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -228,7 +245,8 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                             ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 25, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 25.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -243,19 +261,22 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF858585),
-                                                          fontSize: 10,
+                                                          fontSize: 10.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                   ),
                                                   Text(
-                                                    '10',
+                                                    getJsonField(
+                                                      widget.customTestJson,
+                                                      r'''$.numQuestions''',
+                                                    ).toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 18,
+                                                          fontSize: 18.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -277,19 +298,25 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF858585),
-                                                        fontSize: 10,
+                                                        fontSize: 10.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                                 ),
                                                 Text(
-                                                  '40',
+                                                  (getJsonField(
+                                                            widget
+                                                                .customTestJson,
+                                                            r'''$.numQuestions''',
+                                                          ) *
+                                                          4)
+                                                      .toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 18,
+                                                        fontSize: 18.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -300,11 +327,11 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                         ),
                                       ),
                                       Divider(
-                                        thickness: 1,
+                                        thickness: 1.0,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 5, 15, 0),
+                                            15.0, 5.0, 15.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -314,11 +341,12 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Icon(
                                                 Icons.check_circle_sharp,
                                                 color: Color(0xFF5FC09C),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ),
                                             Text(
@@ -329,7 +357,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFFAAAAAA),
-                                                    fontSize: 13,
+                                                    fontSize: 13.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -338,7 +366,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            15, 5, 15, 0),
+                                            15.0, 5.0, 15.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -348,11 +376,12 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 10, 0),
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
                                               child: Icon(
                                                 Icons.cancel_outlined,
                                                 color: Color(0xFFDE6161),
-                                                size: 24,
+                                                size: 24.0,
                                               ),
                                             ),
                                             Text(
@@ -363,7 +392,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFFAAAAAA),
-                                                    fontSize: 13,
+                                                    fontSize: 13.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -372,7 +401,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            49, 0, 15, 10),
+                                            49.0, 0.0, 15.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -388,7 +417,7 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFFAAAAAA),
-                                                    fontSize: 13,
+                                                    fontSize: 13.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -407,22 +436,71 @@ class _StartTestPageWidgetState extends State<StartTestPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 25),
-                  child: Container(
-                    width: double.infinity,
-                    height: 35,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF00629F),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Text(
-                      'Start Test',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 25.0),
+                  child: InkWell(
+                    onTap: () async {
+                      setState(() {
+                        FFAppState().flag = true;
+                        FFAppState().minutes = getJsonField(
+                              widget.customTestJson,
+                              r'''$.durationInMin''',
+                            ) -
+                            1;
+                        FFAppState().seconds = 59;
+                      });
+
+                      context.pushNamed(
+                        'TestPage',
+                        queryParams: {
+                          'testId': serializeParam(
+                            getJsonField(
+                              widget.customTestJson,
+                              r'''$.id''',
+                            ).toString(),
+                            ParamType.String,
                           ),
+                          'first': serializeParam(
+                            getJsonField(
+                              widget.customTestJson,
+                              r'''$.numQuestions''',
+                            ),
+                            ParamType.int,
+                          ),
+                          'offset': serializeParam(
+                            0,
+                            ParamType.int,
+                          ),
+                          'numberOfQuestions': serializeParam(
+                            getJsonField(
+                              widget.customTestJson,
+                              r'''$.numQuestions''',
+                            ),
+                            ParamType.int,
+                          ),
+                          'customTestJson': serializeParam(
+                            widget.customTestJson,
+                            ParamType.JSON,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 35.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF00629F),
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        'Start Test',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
                     ),
                   ),
                 ),

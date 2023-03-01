@@ -1,5 +1,6 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +42,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
@@ -56,7 +57,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
         Expanded(
           child: Container(
             width: double.infinity,
-            height: 100,
+            height: 100.0,
             decoration: BoxDecoration(
               color: Color(0x00FFFFFF),
             ),
@@ -65,26 +66,28 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 12),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 12.0),
                   child: Container(
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height * 0.5,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(25.0),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 5.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                width: 110,
-                                height: 3,
+                                width: 110.0,
+                                height: 3.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFF838383),
                                 ),
@@ -93,8 +96,8 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                           ),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 15, 20, 20),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 15.0, 20.0, 20.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,7 +109,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                 child: Icon(
                                   Icons.cancel_outlined,
                                   color: Color(0xFF00629F),
-                                  size: 20,
+                                  size: 20.0,
                                 ),
                               ),
                               Text(
@@ -115,21 +118,21 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 20,
+                                      fontSize: 20.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Icon(
                                 Icons.cancel_outlined,
                                 color: Color(0x0000629F),
-                                size: 24,
+                                size: 24.0,
                               ),
                             ],
                           ),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,13 +143,13 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 12),
+                                        0.0, 0.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Container(
-                                          width: 15,
-                                          height: 15,
+                                          width: 15.0,
+                                          height: 15.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFFF2743),
                                             shape: BoxShape.circle,
@@ -155,7 +158,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
+                                                  5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Incorrect',
                                             style: FlutterFlowTheme.of(context)
@@ -163,7 +166,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFFA6A6A6),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -171,15 +174,15 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
+                                                  5.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            '(01/100)',
+                                            '( ${functions.getTotalOfAllStatus(FFAppState().allQuestionsStatus.toList(), 'incorrect').toString()}/${FFAppState().questionList.length.toString()} )',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFFFF2743),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -191,8 +194,8 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 15,
-                                        height: 15,
+                                        width: 15.0,
+                                        height: 15.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFF78C0DF),
                                           shape: BoxShape.circle,
@@ -200,7 +203,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
+                                            5.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'Bookmark',
                                           style: FlutterFlowTheme.of(context)
@@ -208,22 +211,22 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFA6A6A6),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
+                                            5.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          '(01/100)',
+                                          '( ${functions.getTotalOfAllStatus(FFAppState().allQuestionsStatus.toList(), 'bookmark').toString()}/${FFAppState().questionList.length.toString()} )',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF78C0DF),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -238,13 +241,13 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 12),
+                                        0.0, 0.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Container(
-                                          width: 15,
-                                          height: 15,
+                                          width: 15.0,
+                                          height: 15.0,
                                           decoration: BoxDecoration(
                                             color: Color(0xFF5EB85E),
                                             shape: BoxShape.circle,
@@ -253,7 +256,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
+                                                  5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Correct',
                                             style: FlutterFlowTheme.of(context)
@@ -261,7 +264,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFFA6A6A6),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -269,15 +272,15 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5, 0, 0, 0),
+                                                  5.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            '(01/100)',
+                                            '( ${functions.getTotalOfAllStatus(FFAppState().allQuestionsStatus.toList(), 'correct').toString()}/${FFAppState().questionList.length.toString()} )',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF5EB85E),
-                                                  fontSize: 12,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -289,8 +292,8 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Container(
-                                        width: 15,
-                                        height: 15,
+                                        width: 15.0,
+                                        height: 15.0,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFA6A6A6),
                                           shape: BoxShape.circle,
@@ -298,7 +301,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
+                                            5.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'UnAttempted',
                                           style: FlutterFlowTheme.of(context)
@@ -306,22 +309,22 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFA6A6A6),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
+                                            5.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          '(01/100)',
+                                          '( ${functions.getTotalOfAllStatus(FFAppState().allQuestionsStatus.toList(), 'unattempt').toString()}/${FFAppState().questionList.length.toString()} )',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFFA6A6A6),
-                                                fontSize: 12,
+                                                fontSize: 12.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -334,15 +337,15 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                           ),
                         ),
                         Divider(
-                          thickness: 1,
+                          thickness: 1.0,
                           color: Color(0xFFA6A6A6),
                         ),
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
                             child: Container(
-                              height: 200,
+                              height: 200.0,
                               decoration: BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
@@ -353,9 +356,9 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 5,
-                                      crossAxisSpacing: 10,
-                                      mainAxisSpacing: 10,
-                                      childAspectRatio: 1,
+                                      crossAxisSpacing: 10.0,
+                                      mainAxisSpacing: 10.0,
+                                      childAspectRatio: 1.0,
                                     ),
                                     shrinkWrap: true,
                                     scrollDirection: Axis.vertical,
@@ -365,7 +368,7 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                           quetionList[quetionListIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 5, 5, 5),
+                                            5.0, 5.0, 5.0, 5.0),
                                         child: InkWell(
                                           onTap: () async {
                                             setState(() {
@@ -375,17 +378,53 @@ class _BubbleQuestionsWidgetState extends State<BubbleQuestionsWidget> {
                                             Navigator.pop(context);
 
                                             context.pushNamed(
-                                                'PracticeQuetionsPage');
+                                              'PracticeQuetionsPage',
+                                              queryParams: {
+                                                'testId': serializeParam(
+                                                  widget.testId,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
                                           },
                                           child: Container(
-                                            width: 100,
-                                            height: 100,
+                                            width: 100.0,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFFF5151),
+                                              color: getJsonField(
+                                                        FFAppState()
+                                                                .allQuestionsStatus[
+                                                            quetionListIndex],
+                                                        r'''$.userAnswer''',
+                                                      ) ==
+                                                      null
+                                                  ? (getJsonField(
+                                                            FFAppState()
+                                                                    .allQuestionsStatus[
+                                                                quetionListIndex],
+                                                            r'''$.bookmarkQuestion''',
+                                                          ) !=
+                                                          null
+                                                      ? Color(0xFF78C0DF)
+                                                      : Color(0xFF5E5E5E))
+                                                  : (getJsonField(
+                                                            FFAppState()
+                                                                    .allQuestionsStatus[
+                                                                quetionListIndex],
+                                                            r'''$.userAnswer.userAnswer''',
+                                                          ) ==
+                                                          getJsonField(
+                                                            FFAppState()
+                                                                    .allQuestionsStatus[
+                                                                quetionListIndex],
+                                                            r'''$.correctOptionIndex''',
+                                                          )
+                                                      ? Color(0xFF5EB85E)
+                                                      : Color(0xFFFF2743)),
                                               shape: BoxShape.circle,
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               (quetionListIndex + 1).toString(),
                                               style:

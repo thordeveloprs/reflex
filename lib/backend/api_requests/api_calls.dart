@@ -123,6 +123,7 @@ class GetPracticeTestDetailsForAnExampleSubjectAnatomyCall {
 class ResetAttemptsOfAPracticeTestShownOnClickingOnTheThreeDotsBesidesTestNameCall {
   Future<ApiCallResponse> call({
     int? selectedId,
+    String? authToken = '',
   }) {
     return ApiManager.instance.makeApiCall(
       callName:
@@ -131,6 +132,7 @@ class ResetAttemptsOfAPracticeTestShownOnClickingOnTheThreeDotsBesidesTestNameCa
       callType: ApiCallType.POST,
       headers: {
         ...PracticeGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
       },
       params: {
         'ignoreTopic': 1,
@@ -367,6 +369,18 @@ class TestGroup {
   static GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall
       getSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall =
       GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubjectsAndChaptersCall();
+  static CreateCustomTestAsPerSelectedParametersCall
+      createCustomTestAsPerSelectedParametersCall =
+      CreateCustomTestAsPerSelectedParametersCall();
+  static UpdateTestAttemptForATestByAUserBasedOnQuestionsAttemptedAndTimeSpendEtcCall
+      updateTestAttemptForATestByAUserBasedOnQuestionsAttemptedAndTimeSpendEtcCall =
+      UpdateTestAttemptForATestByAUserBasedOnQuestionsAttemptedAndTimeSpendEtcCall();
+  static GetCompletedTestAttemptDataWithTestResultForATestAttemptCall
+      getCompletedTestAttemptDataWithTestResultForATestAttemptCall =
+      GetCompletedTestAttemptDataWithTestResultForATestAttemptCall();
+  static CreateTestAttemptForATestByAUserCall
+      createTestAttemptForATestByAUserCall =
+      CreateTestAttemptForATestByAUserCall();
 }
 
 class ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall {
@@ -411,10 +425,11 @@ class ListOfCustomCreatedTestsByTheUserOrderedByDateOfCreationDescendingCall {
 class GetPreviousYearTestsInTestsTabCall {
   Future<ApiCallResponse> call({
     String? courseId = 'Q291cnNlOjIxMzU=',
+    String? authToken = '',
   }) {
     final body = '''
 {
-  "query": "query GetPracticeModeTestList(\$id: ID!) {\\n  course(id: \$id) {\\n    tests(orderBy: [SEQID, ID], where: {allowPracticeMode: false}) {\\n      total\\n      edges {\\n        node {\\n          id\\n          name\\n          numQuestions\\n          durationInMin\\n        }\\n      }\\n    }\\n  }\\n}\\n",
+  "query": "query GetPracticeModeTestList(\$id: ID!) {me{\\nid\\n}\\n  course(id: \$id) {\\n    tests(orderBy: [SEQID, ID], where: {allowPracticeMode: false}) {\\n      total\\n      edges {\\n        node {\\n          id\\n          name\\n          numQuestions\\n          durationInMin\\n   completedAttempt {\\n            id\\n            completed\\n          }\\n     }\\n      }\\n    }\\n  }\\n}\\n",
   "variables": "{\\"id\\": \\"${courseId}\\"}",
   "operationName": "GetPracticeModeTestList"
 }''';
@@ -424,6 +439,7 @@ class GetPreviousYearTestsInTestsTabCall {
       callType: ApiCallType.POST,
       headers: {
         ...TestGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
       },
       params: {},
       body: body,
@@ -479,6 +495,175 @@ class GetSubjectsAndChaptersForTheCustomTestCreationUsingQuestionsFromChosenSubj
         response,
         r'''$.data.course.subjects.edges[:].node.topics.edges[:].node''',
         true,
+      );
+}
+
+class CreateCustomTestAsPerSelectedParametersCall {
+  Future<ApiCallResponse> call({
+    int? numQuestions,
+    dynamic? topicIdsJson,
+    dynamic? subjectIdsJson,
+    int? includeBookmarks,
+    String? authToken = '',
+  }) {
+    final topicIds = _serializeJson(topicIdsJson);
+    final subjectIds = _serializeJson(subjectIdsJson);
+    final body = '''
+{
+  "num_questions": ${numQuestions},
+  "topic_ids": ${topicIds},
+  "subject_ids": ${subjectIds},
+  "include_bookmarks": ${includeBookmarks}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Create custom test as per selected parameters',
+      apiUrl: '${TestGroup.baseUrl}/create_pg_custom_test',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class UpdateTestAttemptForATestByAUserBasedOnQuestionsAttemptedAndTimeSpendEtcCall {
+  Future<ApiCallResponse> call({
+    String? testId = '',
+    String? userId = '',
+    String? authToken = '',
+    String? testAttemptId = '',
+    String? userAnswersJsonStr = '',
+    String? userQuestionWiseDurationInSecJsonStr = '',
+    String? visitedQuestionsJsonStr = '',
+    String? markedQuestionsJsonStr = '',
+    int? elapsedDurationInSec,
+    int? currentQuestionOffset,
+    bool? completed,
+  }) {
+    final body = '''
+{
+  "query": "mutation updateTestAttempt(\$updateTestAttemptInput: updateTestAttemptInput!) {\\n  updateTestAttempt(input: \$updateTestAttemptInput) {\\n    clientMutationId\\n,    newTestAttempt{\\n     id, result\\n    }\\n    }\\n}\\n",
+  "variables": "{\\n  \\"updateTestAttemptInput\\": {\\n    \\"id\\":\\"${testAttemptId}\\",\\n    \\"values\\": {\\n    \\t\\"testId\\": \\"${testId}\\",\\n      \\"userId\\": \\"${userId}\\",\\n      \\"userAnswers\\": ${userAnswersJsonStr},\\n      \\"userQuestionWiseDurationInSec\\":${userQuestionWiseDurationInSecJsonStr} ,\\n      \\"visitedQuestions\\": ${visitedQuestionsJsonStr},\\n      \\"markedQuestions\\": ${markedQuestionsJsonStr},\\n      \\"elapsedDurationInSec\\": ${elapsedDurationInSec},\\n      \\"currentQuestionOffset\\": ${currentQuestionOffset},\\n      \\"completed\\": ${completed}\\n   }\\n  }\\n}",
+  "operationName": "updateTestAttempt"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'update test attempt for a test by a user based on questions attempted and time spend etc ',
+      apiUrl: '${TestGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
+class GetCompletedTestAttemptDataWithTestResultForATestAttemptCall {
+  Future<ApiCallResponse> call({
+    String? testAttemptId = '',
+    String? authToken = '',
+  }) {
+    final body = '''
+{
+  "query": "query GetTestAttemptDetailsQuery(\$id: ID!) {\\n  testAttempt(id: \$id) {\\n    id\\n    result\\n    userAnswers\\n    createdAt\\n    completed\\n    detail {\\n      showAnswer\\n    }\\n    test {\\n      id\\n      name\\n      durationInMin\\n      resultMsgHtml\\n      canReview\\n      reviewAt\\n      numQuestions\\n      positiveMarks\\n      maxMarks\\n questions{\\n edges{\\n node{\\n id\\n, questionWithMathjax\\n, question\\n correctOptionIndex\\n explanation\\n analytics{\\n correctPercentage, option1Percentage, option2Percentage, option3Percentage, option4Percentage}}}}       myRank {\\n        rank\\n        testAttemptId\\n        id\\n      }\\n      toppers {\\n        total\\n      }\\n    }\\n  }\\n}",
+  "variables": "{\\n  \\"id\\": \\"${testAttemptId}\\"\\n}",
+  "operationName": "GetTestAttemptDetailsQuery"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'Get completed test attempt data with test result for a test attempt',
+      apiUrl: '${TestGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic correctAnswerCount(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.result.correctAnswerCount''',
+      );
+  dynamic incorrectAnswerCount(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.result.incorrectAnswerCount''',
+      );
+  dynamic totalMarks(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.result.totalMarks''',
+      );
+  dynamic rank(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.test.myRank.rank''',
+      );
+  dynamic toppers(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.test.toppers.total''',
+      );
+  dynamic questionsList(dynamic response) => getJsonField(
+        response,
+        r'''$.data.testAttempt.test.questions.edges[:].node''',
+        true,
+      );
+}
+
+class CreateTestAttemptForATestByAUserCall {
+  Future<ApiCallResponse> call({
+    String? testId = '',
+    String? userId = '',
+    String? authToken = '',
+  }) {
+    final body = '''
+{
+  "query": "mutation createTestAttempt(\$createTestAttemptInput: createTestAttemptInput!) {\\n  createTestAttempt(input: \$createTestAttemptInput) {\\n    clientMutationId\\n    newTestAttempt {\\n      id\\n    }\\n  }\\n}",
+  "variables": "{\\n  \\"createTestAttemptInput\\": {\\n    \\"testId\\": \\"${testId}\\",\\n    \\"userId\\": \\"${userId}\\"\\n  }\\n}",
+  "operationName": "createTestAttempt"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Create test attempt for a test by a user',
+      apiUrl: '${TestGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...TestGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic testAttemptId(dynamic response) => getJsonField(
+        response,
+        r'''$.data.createTestAttempt.newTestAttempt.id''',
       );
 }
 
@@ -618,29 +803,6 @@ class PaymentGroup {
 }
 
 /// End Payment Group Code
-
-class MockServeCall {
-  static Future<ApiCallResponse> call() {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Mock Serve',
-      apiUrl:
-          'https://aada32bc-36ea-48c1-ac1f-fbcf3d5e6f81.mock.pstmn.io/graphql',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-    );
-  }
-
-  static dynamic testQuestions(dynamic response) => getJsonField(
-        response,
-        r'''$.data.test.questions.edges[:].node''',
-        true,
-      );
-}
 
 class ApiPagingParams {
   int nextPageNumber = 0;

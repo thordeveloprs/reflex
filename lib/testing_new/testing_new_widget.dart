@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/instant_timer.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -51,7 +51,7 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
             children: [
               Container(
                 width: double.infinity,
-                height: 500,
+                height: 500.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -66,8 +66,8 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).primaryColor,
                           ),
@@ -88,10 +88,10 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                             [];
                         return Container(
                           width: double.infinity,
-                          height: 500,
+                          height: 500.0,
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 50.0),
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
@@ -131,7 +131,7 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: 100,
+                  height: 100.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -145,8 +145,8 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                               List.generate(numList.length, (numListIndex) {
                             final numListItem = numList[numListIndex];
                             return Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
                               child: InkWell(
                                 onTap: () async {
                                   setState(() {
@@ -193,12 +193,12 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                                   );
                                 },
                                 child: Container(
-                                  width: 180,
-                                  height: 40,
+                                  width: 180.0,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
                                     color: Color(0xFF296F01),
                                   ),
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     numListItem.toString(),
                                     style: FlutterFlowTheme.of(context)
@@ -224,8 +224,11 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                 },
                 text: 'Button',
                 options: FFButtonOptions(
-                  width: 130,
-                  height: 40,
+                  width: 130.0,
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primaryColor,
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                         fontFamily: 'Poppins',
@@ -233,9 +236,9 @@ class _TestingNewWidgetState extends State<TestingNewWidget> {
                       ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
-                    width: 1,
+                    width: 1.0,
                   ),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],

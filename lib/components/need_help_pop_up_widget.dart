@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +30,7 @@ class _NeedHelpPopUpWidgetState extends State<NeedHelpPopUpWidget> {
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
@@ -45,7 +45,7 @@ class _NeedHelpPopUpWidgetState extends State<NeedHelpPopUpWidget> {
         Expanded(
           child: Container(
             width: double.infinity,
-            height: 100,
+            height: 100.0,
             decoration: BoxDecoration(
               color: Color(0x00FFFFFF),
             ),
@@ -55,13 +55,14 @@ class _NeedHelpPopUpWidgetState extends State<NeedHelpPopUpWidget> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.9,
-                  height: 180,
+                  height: 180.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFD3E5F1),
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(25.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(18, 20, 30, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(18.0, 20.0, 30.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,24 +72,26 @@ class _NeedHelpPopUpWidgetState extends State<NeedHelpPopUpWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 22,
+                                    fontSize: 22.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
                           child: Text(
                             'write to us at supportpg@neetprep.com',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 12,
+                                      fontSize: 12.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -104,7 +107,7 @@ class _NeedHelpPopUpWidgetState extends State<NeedHelpPopUpWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF3474A1),
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),

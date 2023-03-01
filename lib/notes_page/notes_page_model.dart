@@ -1,8 +1,8 @@
-import '../backend/api_requests/api_calls.dart';
-import '../components/nav_bar_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
+import '/backend/api_requests/api_calls.dart';
+import '/components/nav_bar_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,9 @@ class NotesPageModel extends FlutterFlowModel {
     navBarModel = createModel(context, () => NavBarModel());
   }
 
-  void dispose() {}
+  void dispose() {
+    navBarModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

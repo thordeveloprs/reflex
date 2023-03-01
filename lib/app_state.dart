@@ -18,6 +18,7 @@ class FFAppState extends ChangeNotifier {
     prefs = await SharedPreferences.getInstance();
     _jwtToken = prefs.getString('ff_jwtToken') ?? _jwtToken;
     _accessToken = prefs.getString('ff_accessToken') ?? _accessToken;
+    _userIdInt = prefs.getInt('ff_userIdInt') ?? _userIdInt;
   }
 
   void update(VoidCallback callback) {
@@ -240,15 +241,8 @@ class FFAppState extends ChangeNotifier {
     _mockEmail = _value;
   }
 
-  String _mockProfilePic =
-      'https://lh3.googleusercontent.com/a/AEdFTp6WiotPy2D7VWwzHoWTNxvqrZaLVGuQZSfIbG4N=s360-p-no';
-  String get mockProfilePic => _mockProfilePic;
-  set mockProfilePic(String _value) {
-    _mockProfilePic = _value;
-  }
-
   String _subjectToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkxOTExOTkyLCJpYXQiOjE2NzYzNTk5OTJ9.7IHkbud_C4J72freq3HpsE2B9q5Z_K9yx9qHq4x20ys';
+      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkxOTI1MjMzLCJpYXQiOjE2NzYzNzMyMzN9.qdznTLW4jcZFqWAsLCEx1HPO1j09LSPNUlfUD4dY4XA';
   String get subjectToken => _subjectToken;
   set subjectToken(String _value) {
     _subjectToken = _value;
@@ -258,6 +252,146 @@ class FFAppState extends ChangeNotifier {
   dynamic get bookMarkEmptyJson => _bookMarkEmptyJson;
   set bookMarkEmptyJson(dynamic _value) {
     _bookMarkEmptyJson = _value;
+  }
+
+  int _userIdInt = 0;
+  int get userIdInt => _userIdInt;
+  set userIdInt(int _value) {
+    _userIdInt = _value;
+    prefs.setInt('ff_userIdInt', _value);
+  }
+
+  String _mockProfilePic =
+      'https://lh3.googleusercontent.com/a/AEdFTp6WiotPy2D7VWwzHoWTNxvqrZaLVGuQZSfIbG4N=s360-p-no';
+  String get mockProfilePic => _mockProfilePic;
+  set mockProfilePic(String _value) {
+    _mockProfilePic = _value;
+  }
+
+  String _topicNameForEachPage = '';
+  String get topicNameForEachPage => _topicNameForEachPage;
+  set topicNameForEachPage(String _value) {
+    _topicNameForEachPage = _value;
+  }
+
+  dynamic _topicIds = jsonDecode('[]');
+  dynamic get topicIds => _topicIds;
+  set topicIds(dynamic _value) {
+    _topicIds = _value;
+  }
+
+  dynamic _subIds = jsonDecode('[]');
+  dynamic get subIds => _subIds;
+  set subIds(dynamic _value) {
+    _subIds = _value;
+  }
+
+  List<int> _testQueAnsList = [];
+  List<int> get testQueAnsList => _testQueAnsList;
+  set testQueAnsList(List<int> _value) {
+    _testQueAnsList = _value;
+  }
+
+  void addToTestQueAnsList(int _value) {
+    _testQueAnsList.add(_value);
+  }
+
+  void removeFromTestQueAnsList(int _value) {
+    _testQueAnsList.remove(_value);
+  }
+
+  void removeAtIndexFromTestQueAnsList(int _index) {
+    _testQueAnsList.removeAt(_index);
+  }
+
+  List<int> _questionsListInInt = [];
+  List<int> get questionsListInInt => _questionsListInInt;
+  set questionsListInInt(List<int> _value) {
+    _questionsListInInt = _value;
+  }
+
+  void addToQuestionsListInInt(int _value) {
+    _questionsListInInt.add(_value);
+  }
+
+  void removeFromQuestionsListInInt(int _value) {
+    _questionsListInInt.remove(_value);
+  }
+
+  void removeAtIndexFromQuestionsListInInt(int _index) {
+    _questionsListInInt.removeAt(_index);
+  }
+
+  List<int> _answerListInInt = [];
+  List<int> get answerListInInt => _answerListInInt;
+  set answerListInInt(List<int> _value) {
+    _answerListInInt = _value;
+  }
+
+  void addToAnswerListInInt(int _value) {
+    _answerListInInt.add(_value);
+  }
+
+  void removeFromAnswerListInInt(int _value) {
+    _answerListInInt.remove(_value);
+  }
+
+  void removeAtIndexFromAnswerListInInt(int _index) {
+    _answerListInInt.removeAt(_index);
+  }
+
+  List<int> _secondsList = [];
+  List<int> get secondsList => _secondsList;
+  set secondsList(List<int> _value) {
+    _secondsList = _value;
+  }
+
+  void addToSecondsList(int _value) {
+    _secondsList.add(_value);
+  }
+
+  void removeFromSecondsList(int _value) {
+    _secondsList.remove(_value);
+  }
+
+  void removeAtIndexFromSecondsList(int _index) {
+    _secondsList.removeAt(_index);
+  }
+
+  List<int> _secondsListInInt = [];
+  List<int> get secondsListInInt => _secondsListInInt;
+  set secondsListInInt(List<int> _value) {
+    _secondsListInInt = _value;
+  }
+
+  void addToSecondsListInInt(int _value) {
+    _secondsListInInt.add(_value);
+  }
+
+  void removeFromSecondsListInInt(int _value) {
+    _secondsListInInt.remove(_value);
+  }
+
+  void removeAtIndexFromSecondsListInInt(int _index) {
+    _secondsListInInt.removeAt(_index);
+  }
+
+  String _testAttemptId = '';
+  String get testAttemptId => _testAttemptId;
+  set testAttemptId(String _value) {
+    _testAttemptId = _value;
+  }
+
+  int _minutes = 0;
+  int get minutes => _minutes;
+  set minutes(int _value) {
+    _minutes = _value;
+  }
+
+  int _seconds = 0;
+  int get seconds => _seconds;
+  set seconds(int _value) {
+    _seconds = _value;
   }
 }
 
