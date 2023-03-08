@@ -23,7 +23,7 @@ Future paytmIntegration(
     print(value);
   }).catchError((onError) {
     if (onError is PlatformException) {
-      print(onError.message + " \n  " + onError.details.toString());
+      print(onError.message! + " \n  " + onError.details.toString());
     } else {
       print(onError.toString());
     }
