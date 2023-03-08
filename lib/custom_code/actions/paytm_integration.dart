@@ -8,10 +8,11 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'package:paytm_allinonesdk/paytm_allinonesdk.dart';
+import 'package:flutter/services.dart';
 
 Future paytmIntegration(
   String orderId,
-  double amount,
+  String amount,
   String txnToken,
 ) async {
   String callbackurl =

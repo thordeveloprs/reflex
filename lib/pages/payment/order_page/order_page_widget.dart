@@ -241,7 +241,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                               onTap: () async {
                                 await actions.paytmIntegration(
                                   'ORDS1678266356511702200143597',
-                                  1.0,
+                                  '1',
                                   '319121409d0048faa46aa1d6a8b0f6531678266356824',
                                 );
                               },
