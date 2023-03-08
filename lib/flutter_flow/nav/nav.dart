@@ -67,15 +67,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? PracticePageWidget() : LoginPageWidget(),
+      errorBuilder: (context, _) => appStateNotifier.loggedIn
+          ? PracticeTestPageWidget()
+          : PracticePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PracticePageWidget()
-              : LoginPageWidget(),
+              ? PracticeTestPageWidget()
+              : PracticePageWidget(),
           routes: [
             FFRoute(
               name: 'LoginPage',
@@ -439,7 +440,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/loginPage';
+            return '/practicePage';
           }
           return null;
         },
