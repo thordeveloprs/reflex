@@ -19,6 +19,24 @@ class FFAppState extends ChangeNotifier {
     _jwtToken = prefs.getString('ff_jwtToken') ?? _jwtToken;
     _accessToken = prefs.getString('ff_accessToken') ?? _accessToken;
     _userIdInt = prefs.getInt('ff_userIdInt') ?? _userIdInt;
+    if (prefs.containsKey('ff_memberShipRes')) {
+      try {
+        _memberShipRes = jsonDecode(prefs.getString('ff_memberShipRes') ?? '');
+      } catch (e) {
+        print("Can't decode persisted json. Error: $e.");
+      }
+    }
+
+    _memberShipResIdList =
+        prefs.getStringList('ff_memberShipResIdList')?.map((x) {
+              try {
+                return jsonDecode(x);
+              } catch (e) {
+                print("Can't decode persisted json. Error: $e.");
+                return {};
+              }
+            }).toList() ??
+            _memberShipResIdList;
   }
 
   void update(VoidCallback callback) {
@@ -242,7 +260,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   String _subjectToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkxOTI1MjMzLCJpYXQiOjE2NzYzNzMyMzN9.qdznTLW4jcZFqWAsLCEx1HPO1j09LSPNUlfUD4dY4XA';
+      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkzMjIxMTY0LCJpYXQiOjE2Nzc2NjkxNjR9.LtxNWiwsBSTUGvpoBfdowHSRxp4Pk-_BIQUpuun_dow';
   String get subjectToken => _subjectToken;
   set subjectToken(String _value) {
     _subjectToken = _value;
@@ -392,6 +410,57 @@ class FFAppState extends ChangeNotifier {
   int get seconds => _seconds;
   set seconds(int _value) {
     _seconds = _value;
+  }
+
+  dynamic _questionsList;
+  dynamic get questionsList => _questionsList;
+  set questionsList(dynamic _value) {
+    _questionsList = _value;
+  }
+
+  dynamic _testAttemptData;
+  dynamic get testAttemptData => _testAttemptData;
+  set testAttemptData(dynamic _value) {
+    _testAttemptData = _value;
+  }
+
+  dynamic _memberShipRes;
+  dynamic get memberShipRes => _memberShipRes;
+  set memberShipRes(dynamic _value) {
+    _memberShipRes = _value;
+    prefs.setString('ff_memberShipRes', jsonEncode(_value));
+  }
+
+  List<dynamic> _memberShipResIdList = [];
+  List<dynamic> get memberShipResIdList => _memberShipResIdList;
+  set memberShipResIdList(List<dynamic> _value) {
+    _memberShipResIdList = _value;
+    prefs.setStringList(
+        'ff_memberShipResIdList', _value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void addToMemberShipResIdList(dynamic _value) {
+    _memberShipResIdList.add(_value);
+    prefs.setStringList('ff_memberShipResIdList',
+        _memberShipResIdList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromMemberShipResIdList(dynamic _value) {
+    _memberShipResIdList.remove(_value);
+    prefs.setStringList('ff_memberShipResIdList',
+        _memberShipResIdList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromMemberShipResIdList(int _index) {
+    _memberShipResIdList.removeAt(_index);
+    prefs.setStringList('ff_memberShipResIdList',
+        _memberShipResIdList.map((x) => jsonEncode(x)).toList());
+  }
+
+  String _mid = 'GoodEd74716548680494';
+  String get mid => _mid;
+  set mid(String _value) {
+    _mid = _value;
   }
 }
 

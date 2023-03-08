@@ -53,6 +53,7 @@ dependencies:
   intl: 0.17.0
   json_path: 0.4.1
   page_transition: 2.0.4
+  paytm_allinonesdk: ^1.1.7
   pdfx: 2.2.0
   plugin_platform_interface: 2.1.3
   provider: 6.0.4

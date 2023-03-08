@@ -730,7 +730,9 @@ class SignupGroup {
 }
 
 class LoggedInUserInformationAndCourseAccessCheckingApiCall {
-  Future<ApiCallResponse> call() {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+  }) {
     final body = '''
 {
   "query": "query GetMe {\\n  me {\\n    profile {\\n      id\\n      displayName\\n      picture\\n      email\\n    }\\n    userCourses(where: {courseId: 2135}) {\\n      edges {\\n        node {\\n          expiryAt\\n        }\\n      }\\n    }\\n  }\\n}",
@@ -743,8 +745,7 @@ class LoggedInUserInformationAndCourseAccessCheckingApiCall {
       callType: ApiCallType.POST,
       headers: {
         ...SignupGroup.headers,
-        'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjVhNTA5ZjAxOWY3MGQ3NzlkODBmMTUyZDFhNWQzMzgxMWFiN2NlZjciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQW51amVzaCBEYWhpeWEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNzdoc09sN1pXb3RhZkJlbzBCQ0ZHbFBhQUlEeDJTamtDSlp4V1NOdz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9uZWV0cHJlcC1wZy1weXFzLTEwMGQxIiwiYXVkIjoibmVldHByZXAtcGctcHlxcy0xMDBkMSIsImF1dGhfdGltZSI6MTY3NTY4NDU5OCwidXNlcl9pZCI6InJjd3UxcEI4cXhiaEV4QlhkaUFadG9hUndFSDMiLCJzdWIiOiJyY3d1MXBCOHF4YmhFeEJYZGlBWnRvYVJ3RUgzIiwiaWF0IjoxNjc1Njg4NDIwLCJleHAiOjE2NzU2OTIwMjAsImVtYWlsIjoiYW51amVzaGRhaGl5YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwMjgwODcwMjE1NTE4NTM4NTQ5MCJdLCJlbWFpbCI6WyJhbnVqZXNoZGFoaXlhQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.QWTw_ARscv8x2Sx8nq4rzVWcmcV7ZagTjMAF2WFTean1di3xZo5aqX09t_Th9pPpR4rmNtB97BZ9HDkosy-dVuxftk3H5uTqIdkEywN4zglONprjoMI79p_8DugjDG59kmMivZX5RC21gSOsMqKn2cMrU5puk8_-2823uctY-dRruIPkIft1RTw0EmdM-2HfxNwjmHO8YF7_YASX1qR3ycRDnLo5BlKz_EtYpWEAShWvNhKLW2fbStrLxjVWZJ8ooST7c6ta6mCh5l_cyuXN8jivMpbkmVbTI9Owobx0nrZsBU52Z3V-kCb_rLIiYEtrEd1UEM5lKCx2qkdqwpz6lQ',
+        'Authorization': 'Bearer ${authToken}',
       },
       params: {},
       body: body,
@@ -755,6 +756,16 @@ class LoggedInUserInformationAndCourseAccessCheckingApiCall {
       cache: true,
     );
   }
+
+  dynamic me(dynamic response) => getJsonField(
+        response,
+        r'''$.data.me''',
+      );
+  dynamic courses(dynamic response) => getJsonField(
+        response,
+        r'''$.data.me.userCourses.edges''',
+        true,
+      );
 }
 
 class GoogleLoginServerCallWithCodeReceivedFromGoogleAuthenticationCall {
@@ -800,6 +811,98 @@ class GoogleLoginServerCallWithCodeReceivedFromGoogleAuthenticationCall {
 class PaymentGroup {
   static String baseUrl = 'https://www.neetprep.com';
   static Map<String, String> headers = {};
+  static CreatePaymentForAUserForACourseAndCourseOfferAndGetChecksumCall
+      createPaymentForAUserForACourseAndCourseOfferAndGetChecksumCall =
+      CreatePaymentForAUserForACourseAndCourseOfferAndGetChecksumCall();
+  static GetCoursePriceAndCourseOffersToSelectFromToStartPaymentCall
+      getCoursePriceAndCourseOffersToSelectFromToStartPaymentCall =
+      GetCoursePriceAndCourseOffersToSelectFromToStartPaymentCall();
+}
+
+class CreatePaymentForAUserForACourseAndCourseOfferAndGetChecksumCall {
+  Future<ApiCallResponse> call({
+    int? txnAmount,
+    String? email = '',
+    String? mobile = '',
+    String? userid = '',
+    String? course = '',
+    String? courseOfferId = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'Create payment for a user for a course and course offer and get checksum',
+      apiUrl: '${PaymentGroup.baseUrl}/api/v1/generate_checksum',
+      callType: ApiCallType.POST,
+      headers: {
+        ...PaymentGroup.headers,
+      },
+      params: {
+        'TXN_AMOUNT': txnAmount,
+        'EMAIL': email,
+        'MOBILE': mobile,
+        'USERID': userid,
+        'COURSE': course,
+        'COURSE_OFFER_ID': courseOfferId,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic paymentId(dynamic response) => getJsonField(
+        response,
+        r'''$.payment_id''',
+      );
+  dynamic orderId(dynamic response) => getJsonField(
+        response,
+        r'''$.order_id''',
+      );
+  dynamic checksum(dynamic response) => getJsonField(
+        response,
+        r'''$.checksum''',
+      );
+}
+
+class GetCoursePriceAndCourseOffersToSelectFromToStartPaymentCall {
+  Future<ApiCallResponse> call({
+    String? courseId = 'Q291cnNlOjIxMzU=',
+  }) {
+    final body = '''
+{
+  "query": "query GetCourseDetail(\$id: ID!) {\\n    course(id: \$id) {\\n        id\\n        name\\n        description\\n        fee\\n        discountedFee\\n        discountPercentage\\n        public\\n        expiryAt\\n        image\\n        bestSeller\\n        origFee\\n        feeTitle\\n        feeDesc\\n        type\\n        offers {\\n              edges {\\n                node {\\n                id\\n                  title\\n                  description\\n                  fee\\n                  discountPercentage\\n                  discountedFee\\n                  expiryAt\\n                  durationInDays\\n                }\\n            }\\n        }\\n    }\\n}",
+  "variables": "{\\n  \\"id\\": \\"${courseId}\\"\\n}",
+  "operationName": "GetCourseDetail"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'Get course price and course offers to select from to start payment',
+      apiUrl: '${PaymentGroup.baseUrl}/graphql',
+      callType: ApiCallType.POST,
+      headers: {
+        ...PaymentGroup.headers,
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic course(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+      );
+  dynamic courseOffers(dynamic response) => getJsonField(
+        response,
+        r'''$.data.course.offers.edges[:].node''',
+        true,
+      );
 }
 
 /// End Payment Group Code

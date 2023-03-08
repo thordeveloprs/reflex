@@ -67,16 +67,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => appStateNotifier.loggedIn
-          ? PracticeTestPageWidget()
-          : PracticePageWidget(),
+      errorBuilder: (context, _) =>
+          appStateNotifier.loggedIn ? PracticePageWidget() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PracticeTestPageWidget()
-              : PracticePageWidget(),
+              ? PracticePageWidget()
+              : LoginPageWidget(),
           routes: [
             FFRoute(
               name: 'LoginPage',
@@ -112,17 +111,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NotesPageWidget(),
             ),
             FFRoute(
-              name: 'CreateAndPreviewTestPage',
-              path: 'createAndPreviewTestPage',
-              builder: (context, params) => CreateAndPreviewTestPageWidget(),
-            ),
-            FFRoute(
               name: 'CreateTestResultPage',
               path: 'createTestResultPage',
               builder: (context, params) => CreateTestResultPageWidget(
                 customTestJson:
                     params.getParam('customTestJson', ParamType.JSON),
               ),
+            ),
+            FFRoute(
+              name: 'CreateAndPreviewTestPage',
+              path: 'createAndPreviewTestPage',
+              builder: (context, params) => CreateAndPreviewTestPageWidget(),
             ),
             FFRoute(
               name: 'CreateTestPage',
@@ -137,17 +136,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'OrderPage',
-              path: 'orderPage',
-              builder: (context, params) => OrderPageWidget(),
-            ),
-            FFRoute(
               name: 'StartTestPage',
               path: 'startTestPage',
               builder: (context, params) => StartTestPageWidget(
                 customTestJson:
                     params.getParam('customTestJson', ParamType.JSON),
               ),
+            ),
+            FFRoute(
+              name: 'OrderPage',
+              path: 'orderPage',
+              builder: (context, params) => OrderPageWidget(),
             ),
             FFRoute(
               name: 'testingNew',
@@ -217,6 +216,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => PreviousTestResultPageWidget(
                 customTestJson:
                     params.getParam('customTestJson', ParamType.JSON),
+                testAttemptId:
+                    params.getParam('testAttemptId', ParamType.String),
               ),
             ),
             FFRoute(
@@ -241,6 +242,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 min: params.getParam('min', ParamType.int),
                 sec: params.getParam('sec', ParamType.int),
               ),
+            ),
+            FFRoute(
+              name: 'previousAnswersPage',
+              path: 'previousAnswersPage',
+              builder: (context, params) => PreviousAnswersPageWidget(
+                testId: params.getParam('testId', ParamType.String),
+                first: params.getParam('first', ParamType.int),
+                offset: params.getParam('offset', ParamType.int),
+                numberOfQuestions:
+                    params.getParam('numberOfQuestions', ParamType.int),
+                customTestJson:
+                    params.getParam('customTestJson', ParamType.JSON),
+                min: params.getParam('min', ParamType.int),
+                sec: params.getParam('sec', ParamType.int),
+                testAttemptId:
+                    params.getParam('testAttemptId', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'LockPage',
+              path: 'lockPage',
+              builder: (context, params) => LockPageWidget(),
+            ),
+            FFRoute(
+              name: 'nonMemberShipPracticeTestPage',
+              path: 'nonMemberShipPracticeTestPage',
+              builder: (context, params) => NonMemberShipPracticeTestPageWidget(
+                teatId: params.getParam('teatId', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'NonMemberShipCreateAndPreviewTestPage',
+              path: 'nonMemberShipCreateAndPreviewTestPage',
+              builder: (context, params) =>
+                  NonMemberShipCreateAndPreviewTestPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -403,7 +439,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/practicePage';
+            return '/loginPage';
           }
           return null;
         },

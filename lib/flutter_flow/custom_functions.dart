@@ -275,6 +275,7 @@ String convertQuestionAndAnsIntoMapJson(
   String result = '{';
   result += resultList.join(", ");
   result += ('}');
+  print(result);
   return result;
 }
 
@@ -374,4 +375,60 @@ int seeMinAndSec(int minSec) {
   print("Hello");
   print(minSec);
   return minSec;
+}
+
+String checkString(String str) {
+  print('testing---');
+  print(str);
+  return str;
+}
+
+int getAnswerForPreviousTest(
+  dynamic testResponse,
+  String questionId,
+  int correctAnswer,
+  int currentIndex,
+) {
+  List<String> splittedBase64 = [];
+  String queId = '';
+
+  Codec<String, String> stringToBase64Url = utf8.fuse(base64Url);
+  // String encoded = stringToBase64Url.encode(idInBase64);
+  String decoded = stringToBase64Url.decode(questionId);
+  print(decoded.split(':'));
+  splittedBase64 = decoded.split(':');
+  queId = splittedBase64[1];
+  print('question id');
+  print(queId);
+  print(testResponse["data"]["testAttempt"]["userAnswers"][queId]);
+
+  if (testResponse["data"]["testAttempt"]["userAnswers"][queId] != null) {
+    int userAnswers =
+        int.parse(testResponse["data"]["testAttempt"]["userAnswers"][queId]);
+    if ((userAnswers == correctAnswer) && (userAnswers == currentIndex)) {
+      return 1; //green
+    } else if ((userAnswers != currentIndex) &&
+        (correctAnswer != currentIndex)) {
+      return 3; // gray
+    } else if (correctAnswer == currentIndex) {
+      return 1; // green
+    } else {
+      return 2; // red
+    }
+  } else if (correctAnswer == currentIndex) {
+    return 1; // green
+  } else {
+    return 3; // gray
+  }
+
+  return 0;
+}
+
+String getCreatedTime(String dateInString) {
+  String date = '19:02:13';
+  DateTime parseDt = DateTime.parse(date);
+  final DateFormat formatter = DateFormat('Hm');
+  final String formatted = formatter.format(parseDt);
+
+  return formatted;
 }
