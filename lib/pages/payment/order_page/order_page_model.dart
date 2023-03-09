@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -16,26 +17,36 @@ class OrderPageModel extends FlutterFlowModel {
 
   bool is1YearChecked = false;
 
+  String amount = '499.00';
+
+  String title = '6 month access';
+
+  String fee = '799.00';
+
+  String cc = '216413';
+
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // Stores action output result for [Backend Call - API (Create payment for a user for a course and course offer and get checksum)] action in Container widget.
+  ApiCallResponse? paymentDetails;
+  // State field(s) for NameTextField widget.
+  TextEditingController? nameTextFieldController;
+  String? Function(BuildContext, String?)? nameTextFieldControllerValidator;
   // State field(s) for EmailTextField widget.
-  TextEditingController? emailTextFieldController1;
-  String? Function(BuildContext, String?)? emailTextFieldController1Validator;
-  // State field(s) for EmailTextField widget.
-  TextEditingController? emailTextFieldController2;
-  String? Function(BuildContext, String?)? emailTextFieldController2Validator;
+  TextEditingController? emailTextFieldController;
+  String? Function(BuildContext, String?)? emailTextFieldControllerValidator;
+  // State field(s) for PhoneTextField widget.
+  TextEditingController? phoneTextFieldController;
+  String? Function(BuildContext, String?)? phoneTextFieldControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
-    textController1?.dispose();
-    emailTextFieldController1?.dispose();
-    emailTextFieldController2?.dispose();
+    nameTextFieldController?.dispose();
+    emailTextFieldController?.dispose();
+    phoneTextFieldController?.dispose();
   }
 
   /// Additional helper methods are added here.

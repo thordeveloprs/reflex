@@ -34,8 +34,11 @@ class _PracticePageWidgetState extends State<PracticePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        FFAppState().subjectToken = FFAppState().subjectToken1;
+      });
       await actions.seeTocken(
-        FFAppState().jwtToken,
+        FFAppState().subjectToken,
       );
       _model.memberShip = await SignupGroup
           .loggedInUserInformationAndCourseAccessCheckingApiCall
@@ -53,6 +56,7 @@ class _PracticePageWidgetState extends State<PracticePageWidget> {
             r'''$.data.me.userCourses.edges''',
           )!
               .toList();
+          FFAppState().subjectToken = FFAppState().subjectToken1;
         });
       }
       await actions.getJson(
@@ -377,6 +381,10 @@ class _PracticePageWidgetState extends State<PracticePageWidget> {
                                   ),
                                 ],
                               ),
+                            ),
+                            Text(
+                              currentPhoneNumber,
+                              style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                           ],
                         ),

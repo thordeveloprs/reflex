@@ -37,6 +37,7 @@ class FFAppState extends ChangeNotifier {
               }
             }).toList() ??
             _memberShipResIdList;
+    _subjectToken1 = prefs.getString('ff_subjectToken1') ?? _subjectToken1;
   }
 
   void update(VoidCallback callback) {
@@ -461,6 +462,14 @@ class FFAppState extends ChangeNotifier {
   String get mid => _mid;
   set mid(String _value) {
     _mid = _value;
+  }
+
+  String _subjectToken1 =
+      'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTcyMDU4NCwiZW1haWwiOiJ0aG9yZGV2ZWxvcGVyLnRlY2hAZ21haWwuY29tIiwiZXhwIjoxNjkzMjIxMTY0LCJpYXQiOjE2Nzc2NjkxNjR9.LtxNWiwsBSTUGvpoBfdowHSRxp4Pk-_BIQUpuun_dow';
+  String get subjectToken1 => _subjectToken1;
+  set subjectToken1(String _value) {
+    _subjectToken1 = _value;
+    prefs.setString('ff_subjectToken1', _value);
   }
 }
 

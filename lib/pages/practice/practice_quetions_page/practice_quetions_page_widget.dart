@@ -74,6 +74,7 @@ class _PracticeQuetionsPageWidgetState
             .getStatusOfAllPracticeQuestionsForATestForAGivenUserCall
             .call(
           testIdInt: functions.getIntFromBase64(widget.testId),
+          authToken: FFAppState().subjectToken,
         );
         _model.newStatusList = await actions.chkJson(
           PracticeGroup.getStatusOfAllPracticeQuestionsForATestForAGivenUserCall

@@ -5,3 +5,4 @@ export 'chk_json.dart' show chkJson;
 export 'gmail_login.dart' show gmailLogin;
 export 'get_json.dart' show getJson;
 export 'paytm_integration.dart' show paytmIntegration;
+export 'check_int.dart' show checkInt;

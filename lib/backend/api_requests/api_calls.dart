@@ -824,25 +824,27 @@ class CreatePaymentForAUserForACourseAndCourseOfferAndGetChecksumCall {
     int? txnAmount,
     String? email = '',
     String? mobile = '',
-    String? userid = '',
     String? course = '',
     String? courseOfferId = '',
+    String? authToken = '',
+    int? userid,
   }) {
     return ApiManager.instance.makeApiCall(
       callName:
           'Create payment for a user for a course and course offer and get checksum',
-      apiUrl: '${PaymentGroup.baseUrl}/api/v1/generate_checksum',
+      apiUrl: '${PaymentGroup.baseUrl}/api/v1/generate_txn_token',
       callType: ApiCallType.POST,
       headers: {
         ...PaymentGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
       },
       params: {
         'TXN_AMOUNT': txnAmount,
         'EMAIL': email,
         'MOBILE': mobile,
-        'USERID': userid,
         'COURSE': course,
         'COURSE_OFFER_ID': courseOfferId,
+        'USERID': userid,
       },
       bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
       returnBody: true,
@@ -863,6 +865,30 @@ class CreatePaymentForAUserForACourseAndCourseOfferAndGetChecksumCall {
   dynamic checksum(dynamic response) => getJsonField(
         response,
         r'''$.checksum''',
+      );
+  dynamic mid(dynamic response) => getJsonField(
+        response,
+        r'''$.mid''',
+      );
+  dynamic amount(dynamic response) => getJsonField(
+        response,
+        r'''$.amount''',
+      );
+  dynamic txnToken(dynamic response) => getJsonField(
+        response,
+        r'''$.txnToken''',
+      );
+  dynamic callbackUrl(dynamic response) => getJsonField(
+        response,
+        r'''$.callbackUrl''',
+      );
+  dynamic isStaging(dynamic response) => getJsonField(
+        response,
+        r'''$.isStaging''',
+      );
+  dynamic restrictAppInvoke(dynamic response) => getJsonField(
+        response,
+        r'''$.restrictAppInvoke''',
       );
 }
 

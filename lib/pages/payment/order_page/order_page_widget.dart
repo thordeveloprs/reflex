@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -29,10 +30,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
     super.initState();
     _model = createModel(context, () => OrderPageModel());
 
-    _model.textController1 ??= TextEditingController(text: 'Anujest Dhaiya');
-    _model.emailTextFieldController1 ??=
+    _model.nameTextFieldController ??=
+        TextEditingController(text: 'Anujest Dhaiya');
+    _model.emailTextFieldController ??=
         TextEditingController(text: 'anujeshdahiya@gmail.com');
-    _model.emailTextFieldController2 ??= TextEditingController();
+    _model.phoneTextFieldController ??= TextEditingController();
   }
 
   @override
@@ -67,14 +69,21 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
             context.pop();
           },
         ),
-        title: Text(
-          'Order Summary',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.black,
-                fontSize: 22.0,
-                fontWeight: FontWeight.w500,
-              ),
+        title: InkWell(
+          onTap: () async {
+            await actions.checkInt(
+              FFAppState().userIdInt.toDouble(),
+            );
+          },
+          child: Text(
+            'Order Summary',
+            style: FlutterFlowTheme.of(context).title2.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.black,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
         ),
         actions: [],
         centerTitle: false,
@@ -137,7 +146,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      '${FFAppState().numberOfTimes} access',
+                                      _model.title,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -151,7 +160,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 20.0, 0.0),
                                     child: Text(
-                                      '₹ ${FFAppState().actualAmount.toString()}',
+                                      '₹ ${_model.fee}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -206,7 +215,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 20.0, 0.0),
                                     child: Text(
-                                      '₹ ${FFAppState().discountAmount.toString()}',
+                                      '₹ ${_model.amount}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -230,21 +239,47 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                            width: 240.0,
-                            height: 50.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF00629F),
-                              borderRadius: BorderRadius.circular(35.0),
-                            ),
-                            child: InkWell(
-                              onTap: () async {
-                                await actions.paytmIntegration(
-                                  'ORDS1678266356511702200143597',
-                                  '1',
-                                  '319121409d0048faa46aa1d6a8b0f6531678266356824',
-                                );
-                              },
+                          InkWell(
+                            onTap: () async {
+                              _model.paymentDetails = await PaymentGroup
+                                  .createPaymentForAUserForACourseAndCourseOfferAndGetChecksumCall
+                                  .call(
+                                txnAmount:
+                                    functions.getIntegerAmount(_model.amount),
+                                email: currentUserEmail,
+                                mobile: _model.phoneTextFieldController.text,
+                                authToken: FFAppState().subjectToken,
+                                userid: FFAppState().userIdInt,
+                                course: '2135',
+                                courseOfferId: _model.cc,
+                              );
+                              await actions.getJson(
+                                (_model.paymentDetails?.jsonBody ?? ''),
+                              );
+                              await actions.paytmIntegration(
+                                getJsonField(
+                                  (_model.paymentDetails?.jsonBody ?? ''),
+                                  r'''$.order_id''',
+                                ).toString(),
+                                getJsonField(
+                                  (_model.paymentDetails?.jsonBody ?? ''),
+                                  r'''$.amount''',
+                                ).toString(),
+                                getJsonField(
+                                  (_model.paymentDetails?.jsonBody ?? ''),
+                                  r'''$.txnToken''',
+                                ).toString(),
+                              );
+
+                              setState(() {});
+                            },
+                            child: Container(
+                              width: 240.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF00629F),
+                                borderRadius: BorderRadius.circular(35.0),
+                              ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -464,51 +499,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                         MainAxisAlignment
                                                             .center,
                                                     children: [
-                                                      if (_model
-                                                          .is6MonthChecked)
-                                                        Expanded(
-                                                          child: Container(
-                                                            height: 45.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .lineColor,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          35.0),
-                                                            ),
-                                                            child: Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Text(
-                                                                  'Enroll',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Color(
-                                                                            0xFF878790),
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      if (!_model
-                                                          .is6MonthChecked)
+                                                      if (getJsonField(
+                                                            planListItem,
+                                                            r'''$.discountedFee''',
+                                                          ) !=
+                                                          _model.amount)
                                                         Expanded(
                                                           child: InkWell(
                                                             onTap: () async {
@@ -517,6 +512,11 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                     true;
                                                                 _model.is1YearChecked =
                                                                     false;
+                                                                _model.amount =
+                                                                    getJsonField(
+                                                                  planListItem,
+                                                                  r'''$.discountedFee''',
+                                                                ).toString();
                                                               });
                                                               setState(() {
                                                                 FFAppState()
@@ -527,15 +527,19 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                     799.00;
                                                                 FFAppState()
                                                                         .discountAmount =
-                                                                    449.00;
+                                                                    getJsonField(
+                                                                  planListItem,
+                                                                  r'''$.discountedFee''',
+                                                                );
                                                               });
                                                             },
                                                             child: Container(
                                                               height: 45.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF00629F),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .lineColor,
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
@@ -558,7 +562,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                           fontFamily:
                                                                               'Poppins',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primaryBtnText,
+                                                                              Color(0xFF878790),
                                                                           fontSize:
                                                                               16.0,
                                                                           fontWeight:
@@ -567,6 +571,51 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                                   ),
                                                                 ],
                                                               ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (getJsonField(
+                                                            planListItem,
+                                                            r'''$.discountedFee''',
+                                                          ) ==
+                                                          _model.amount)
+                                                        Expanded(
+                                                          child: Container(
+                                                            height: 45.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0xFF00629F),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          35.0),
+                                                            ),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Text(
+                                                                  'Enroll',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyText1
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryBtnText,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
@@ -916,8 +965,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                       children: [
                                         Expanded(
                                           child: TextFormField(
-                                            controller: _model.textController1,
-                                            autofocus: true,
+                                            controller:
+                                                _model.nameTextFieldController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Name *',
@@ -994,7 +1043,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             validator: _model
-                                                .textController1Validator
+                                                .nameTextFieldControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -1012,9 +1061,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                       children: [
                                         Expanded(
                                           child: TextFormField(
-                                            controller: _model
-                                                .emailTextFieldController1,
-                                            autofocus: true,
+                                            controller:
+                                                _model.emailTextFieldController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Email *',
@@ -1091,7 +1139,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             validator: _model
-                                                .emailTextFieldController1Validator
+                                                .emailTextFieldControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -1109,9 +1157,8 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                       children: [
                                         Expanded(
                                           child: TextFormField(
-                                            controller: _model
-                                                .emailTextFieldController2,
-                                            autofocus: true,
+                                            controller:
+                                                _model.phoneTextFieldController,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Phone Number *',
@@ -1188,7 +1235,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             validator: _model
-                                                .emailTextFieldController2Validator
+                                                .phoneTextFieldControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),

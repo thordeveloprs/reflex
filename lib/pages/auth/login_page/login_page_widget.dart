@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -128,9 +129,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       _model.userAccessInfo = await SignupGroup
                           .googleLoginServerCallWithCodeReceivedFromGoogleAuthenticationCall
                           .call(
-                        email: FFAppState().mockEmail,
-                        name: FFAppState().mockUserName,
-                        picture: FFAppState().mockProfilePic,
+                        email: FFAppState().emailId,
+                        name: FFAppState().userName,
+                        picture:
+                            functions.getImgInStr(FFAppState().displayImage),
+                      );
+                      await actions.getJson(
+                        (_model.userAccessInfo?.jsonBody ?? ''),
                       );
                       setState(() {
                         FFAppState().userIdInt = getJsonField(
@@ -138,6 +143,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           r'''$.id''',
                         );
                         FFAppState().subjectToken = getJsonField(
+                          (_model.userAccessInfo?.jsonBody ?? ''),
+                          r'''$.token''',
+                        ).toString();
+                        FFAppState().subjectToken1 = getJsonField(
                           (_model.userAccessInfo?.jsonBody ?? ''),
                           r'''$.token''',
                         ).toString();

@@ -432,3 +432,12 @@ String getCreatedTime(String dateInString) {
 
   return formatted;
 }
+
+String getImgInStr(String img) {
+  return img;
+}
+
+int getIntegerAmount(String amount) {
+  print(double.parse(amount));
+  return int.parse(amount.split('.')[0]);
+}
