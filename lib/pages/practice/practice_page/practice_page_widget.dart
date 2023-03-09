@@ -346,8 +346,7 @@ class _PracticePageWidgetState extends State<PracticePageWidget> {
                                       GoRouter.of(context).prepareAuthEvent();
                                       await signOut();
 
-                                      context.goNamedAuth(
-                                          'PracticePage', mounted);
+                                      context.goNamedAuth('LoginPage', mounted);
                                     },
                                     child: Icon(
                                       Icons.login,
@@ -364,7 +363,7 @@ class _PracticePageWidgetState extends State<PracticePageWidget> {
                                         await signOut();
 
                                         context.goNamedAuth(
-                                            'PracticePage', mounted);
+                                            'LoginPage', mounted);
                                       },
                                       child: Text(
                                         'Log out',
