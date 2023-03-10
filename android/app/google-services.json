@@ -114,6 +114,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "294950627480-0heneia1bo5ec0vf4n5qmhl5ltcvc42i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gooded.reflex",
+            "certificate_hash": "0f642023a41f6e11e90c5f2b803d4cc4eac7be12"
+          }
+        },
+        {
           "client_id": "294950627480-bpaj9vp9177tqeluvcp0njf4s392q55m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
