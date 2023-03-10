@@ -70,15 +70,26 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Reflex',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 25.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                            InkWell(
+                              onTap: () async {
+                                GoRouter.of(context).prepareAuthEvent();
+                                final user = await signInWithGoogle(context);
+                                if (user == null) {
+                                  return;
+                                }
+
+                                context.goNamedAuth('PracticePage', mounted);
+                              },
+                              child: Text(
+                                'Reflex',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

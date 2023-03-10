@@ -31,9 +31,9 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
     _model = createModel(context, () => OrderPageModel());
 
     _model.nameTextFieldController ??=
-        TextEditingController(text: 'Anujest Dhaiya');
+        TextEditingController(text: currentUserDisplayName);
     _model.emailTextFieldController ??=
-        TextEditingController(text: 'anujeshdahiya@gmail.com');
+        TextEditingController(text: currentUserEmail);
     _model.phoneTextFieldController ??= TextEditingController();
   }
 
@@ -241,35 +241,57 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                         children: [
                           InkWell(
                             onTap: () async {
-                              _model.paymentDetails = await PaymentGroup
-                                  .createPaymentForAUserForACourseAndCourseOfferAndGetChecksumCall
-                                  .call(
-                                txnAmount:
-                                    functions.getIntegerAmount(_model.amount),
-                                email: currentUserEmail,
-                                mobile: _model.phoneTextFieldController.text,
-                                authToken: FFAppState().subjectToken,
-                                userid: FFAppState().userIdInt,
-                                course: '2135',
-                                courseOfferId: _model.cc,
-                              );
-                              await actions.getJson(
-                                (_model.paymentDetails?.jsonBody ?? ''),
-                              );
-                              await actions.paytmIntegration(
-                                getJsonField(
+                              if (_model.phoneTextFieldController.text !=
+                                      null &&
+                                  _model.phoneTextFieldController.text != '') {
+                                _model.paymentDetails = await PaymentGroup
+                                    .createPaymentForAUserForACourseAndCourseOfferAndGetChecksumCall
+                                    .call(
+                                  txnAmount:
+                                      functions.getIntegerAmount(_model.amount),
+                                  email: currentUserEmail,
+                                  mobile: _model.phoneTextFieldController.text,
+                                  authToken: FFAppState().subjectToken,
+                                  userid: FFAppState().userIdInt,
+                                  course: '2135',
+                                  courseOfferId: _model.cc,
+                                );
+                                await actions.getJson(
                                   (_model.paymentDetails?.jsonBody ?? ''),
-                                  r'''$.order_id''',
-                                ).toString(),
-                                getJsonField(
-                                  (_model.paymentDetails?.jsonBody ?? ''),
-                                  r'''$.amount''',
-                                ).toString(),
-                                getJsonField(
-                                  (_model.paymentDetails?.jsonBody ?? ''),
-                                  r'''$.txnToken''',
-                                ).toString(),
-                              );
+                                );
+                                await actions.paytmIntegration(
+                                  getJsonField(
+                                    (_model.paymentDetails?.jsonBody ?? ''),
+                                    r'''$.order_id''',
+                                  ).toString(),
+                                  getJsonField(
+                                    (_model.paymentDetails?.jsonBody ?? ''),
+                                    r'''$.amount''',
+                                  ).toString(),
+                                  getJsonField(
+                                    (_model.paymentDetails?.jsonBody ?? ''),
+                                    r'''$.txnToken''',
+                                  ).toString(),
+                                );
+                              } else {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Mobile Number'),
+                                      content: Text(
+                                          'Please enter the mobile number'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }
 
                               setState(() {});
                             },
@@ -967,6 +989,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           child: TextFormField(
                                             controller:
                                                 _model.nameTextFieldController,
+                                            readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Name *',
@@ -1063,6 +1086,7 @@ class _OrderPageWidgetState extends State<OrderPageWidget> {
                                           child: TextFormField(
                                             controller:
                                                 _model.emailTextFieldController,
+                                            readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelText: 'Email *',

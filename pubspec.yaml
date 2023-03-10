@@ -52,6 +52,7 @@ dependencies:
   internet_file: 1.1.0
   intl: 0.17.0
   json_path: 0.4.1
+  mime_type: 1.0.0
   page_transition: 2.0.4
   paytm_allinonesdk: ^1.1.7
   pdfx: 2.2.0

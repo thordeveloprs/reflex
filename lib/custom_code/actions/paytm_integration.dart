@@ -21,7 +21,7 @@ Future paytmIntegration(
   String callbackurl =
       'https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=$orderId';
   var response = AllInOneSdk.startTransaction(
-      FFAppState().mid, orderId, amount, txnToken, callbackurl, false, false);
+      FFAppState().mid, orderId, amount, txnToken, callbackurl, true, false);
   response.then((value) {
     print(value);
   }).catchError((onError) {
